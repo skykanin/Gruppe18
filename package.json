@@ -1,0 +1,30 @@
+{
+  "name": "gruppeprosjekt",
+  "version": "1.0.0",
+  "description": "Gruppe arbeid for gruppe 18 informatikk",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skykanin/Gruppe18.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Javascript",
+    "electron",
+    "node"
+  ],
+  "author": "Nicholas, Thomas, Jimmy, Endre, Tord, Andreas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skykanin/Gruppe18/issues"
+  },
+  "homepage": "https://github.com/skykanin/Gruppe18#readme",
+  "dependencies": {
+    "electron": "^1.7.6",
+    "typescript": "^2.5.2"
+  }
+}
