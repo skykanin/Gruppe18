@@ -1,5 +1,5 @@
 let img=document.getElementsByTagName("img")[0],
-trans=document.getElementById("trans");
+    trans=document.getElementById("trans");
 trans.onmouseenter=()=>{
 img.style.filter="grayscale(0) blur(0)"
 }
