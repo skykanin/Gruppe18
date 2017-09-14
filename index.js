@@ -1,4 +1,4 @@
-//Ikke gjør endiringer i js filen, bare denne
+//Ikke gjør endringer i js filen, bare denne!!!
 class main {
     constructor(tall, test) {
         this.tall = tall;
