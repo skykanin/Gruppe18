@@ -8,24 +8,71 @@ body{
     color:white;
     margin-left:15vw;   
     font-size:1.4em;
-    line-height:7vh;
+    line-height:50px;
     transition: color .5s;
 }
-li:hover{
+#nav li:hover{
     cursor:pointer;
-    color:yellow;
+    color:#fff;
 }
 #nav{
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
     padding:0;
     position:fixed;
     background-color:#263238;
     left:0;   
     top:0;
-    height:7vh;  
+    height:50px;  
     margin:0; 
-    width:100vw;
+    width:calc(100vw - 100px);
+    z-index:5;
+}
+#buttons{
+    margin:0;
+    padding:0;
+    -webkit-user-select: none;
+    background-color:#263238; 
+    width:100px;
+    position: fixed;
+    right:0;
+    top:0;
+    z-index:6;
+    height:50px;
+    text-align: center;
+}
+#buttons div{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    width:25px;
+    height:25px;
+    color:#ccc;
+    transition: color .5s;
+    position: absolute;
+    line-height:25px;
+
+}
+#close{
+    top:10px;
+    font-size:2em;    
+    left:67px;
+}
+#minimize{
+    left:0;
+    top:10px;
+}
+#maximize{
+    top:8px;
+    font-size:2em;
+    left:33px;
+    position: absolute;
+}
+#buttons div:hover{
+    color:white;
+    cursor: pointer;
 }  
-img{
+#backgroundpic{
     z-index:-1;
     position:fixed;
     left:0;
@@ -74,10 +121,6 @@ h1{
   background-color: transparent;
 }
 
-body::-webkit-scrollbar-track-piece{
-  background-color: transparent;
-}
-
 ::-webkit-scrollbar-track-piece:no-button{
 }
 
@@ -94,4 +137,62 @@ body::-webkit-scrollbar-track-piece{
 
 ::-webkit-scrollbar-thumb:active{
   background-color: #333;
+}
+#wrapper{
+    backface-visibility: hidden;
+    position:fixed;
+    top:50px;
+    width:100vw;
+    overflow-x: hidden;
+    height:calc(100vh - 50px);
+}
+#p1{
+    position: absolute;
+    width: 100vw;
+}
+#p2{
+    position: absolute;
+    width: 100vw;
+    left:-50vw;
+}
+.imageslider{
+    width:100vw;
+    height:50vh;
+    padding:0;
+    margin:0;
+    position: relative;
+}
+#trackpiece{
+    height:inherit;
+    width:3px;
+    background-color:black;
+    border:1px solid white;
+    z-index:3;
+    position: absolute;
+    left:calc(50vw - 2px);
+}
+#trackpiece:hover{
+    cursor:col-resize;
+}
+#slider1{
+    overflow: hidden;
+    z-index: 2;
+    width:50vw;
+    height:50vh;
+    left:0;
+    top:0;
+    position: absolute;
+}
+#slider2{
+    overflow: hidden;
+    z-index: 2;
+    width:50vw;
+    height:50vh;
+    left:50vw;
+    top:0;
+    position: absolute;
+}
+img,div{
+    user-select: none;
+    -webkit-user-drag: none;
 }
