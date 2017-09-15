@@ -21,15 +21,15 @@ close.onclick=()=>{
 }
 minimize.onclick=()=>{
     let window=remote.getCurrentWindow();
+    window.minimize();
+}
+maximize.onclick=()=>{
+    let window=remote.getCurrentWindow();
     if (!window.isMaximized()) {
         window.maximize();
     } else {
         window.unmaximize();
     }
-}
-maximize.onclick=()=>{
-    let window=remote.getCurrentWindow();
-    window.maximize();
 }
 trackpiece.onmousedown=function(e){
     window.onmousemove=function(e){
