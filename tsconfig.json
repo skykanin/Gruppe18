@@ -10,9 +10,10 @@
      ],
       "noImplicitAny": true,
       "strictNullChecks": true,  
-      "removeComments": true
+      "removeComments": true,
+      "outDir": "./Javascript"
   },
   "files": [
-    "index.ts"
+    "./Typescript/index.ts"
   ]
 }
