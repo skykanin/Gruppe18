@@ -86,16 +86,16 @@ body{
     z-index:2;
     background-color:transparent;
     width:100vw;
-    height:20vh;
-    line-height:20vh;
+    height:200px;
+    line-height:200px;
     text-align:center;
 }
 #bottom{
     padding:0;
-    line-height:50vh;
+    line-height:200px;
     text-align:center;
     z-index:2;
-    height:50vh;
+    height:200px;
     width:100vw;
     background-color:#263238;
     color:white;
@@ -103,11 +103,11 @@ body{
 .content{
     padding:0;
     margin:0;
-    line-height:50vh;
+    line-height:200px;
     z-index:2;
     width:100vw;
     text-align:center;
-    height:50vh;
+    height:200px;
     background-color:white;
 }
 h1{
@@ -119,25 +119,16 @@ h1{
 }
 
 ::-webkit-scrollbar-track-piece{
-  background-color: transparent;
+  background-color: hsl(200, 19%, 30%);
 }
 
 ::-webkit-scrollbar-track-piece:no-button{
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: #263238;
+  background-color: hsl(200, 19%, 15%);
   border-radius: 3px;
-  border-left:1px solid white;
 
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background-color: #364248;
-}
-
-::-webkit-scrollbar-thumb:active{
-  background-color: #333;
 }
 #wrapper{
     backface-visibility: hidden;
@@ -171,7 +162,6 @@ h1{
     height:inherit;
     width:3px;
     background-color:black;
-    border:1px solid white;
     z-index:3;
     position: absolute;
     left:calc(50vw - 2px);

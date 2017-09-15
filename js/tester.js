@@ -33,11 +33,13 @@ maximize.onclick=()=>{
 }
 trackpiece.onmousedown=function(e){
     window.onmousemove=function(e){
-        trackpiece.style.left=e.pageX/window.innerWidth*100+"vw"
-        slider1.style.width=e.pageX/window.innerWidth*100+"vw"
-        slider2.style.left=e.pageX/window.innerWidth*100+"vw"
-        slider2.style.width=(window.innerWidth-e.pageX)/window.innerWidth*100+"vw"
-        p2.style.left=-e.pageX/window.innerWidth*100+"vw"
+        if(e.pageX+9+3<window.innerWidth && e.pageX-3>0){
+            trackpiece.style.left=e.pageX/window.innerWidth*100+"vw"
+            slider1.style.width=e.pageX/window.innerWidth*100+"vw"
+            slider2.style.left=e.pageX/window.innerWidth*100+"vw"
+            slider2.style.width=(window.innerWidth-e.pageX)/window.innerWidth*100+"vw"
+            p2.style.left=-e.pageX/window.innerWidth*100+"vw"
+        }
     }
 }
 window.onmouseup=(e)=>{
