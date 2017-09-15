@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    ul#nav
+        li Manager
+        li Band
+        li Sound Technician
+        li Owner
+    img(src='../images/electron.png')
+    div.content
+        h1 This is the front page
+        | We are using node <script>document.write(process.versions.node)</script>,
+        | Chrome <script>document.write(process.versions.chrome)</script>,
+        | and Electron <script>document.write(process.versions.electron)</script>.
+    div#trans
+        h1 Ok this is getting ridiculous
+    div.content
+    div#bottom
+        h1 This is a div
+
+block scripts
+    script(src="../js/index.js")
