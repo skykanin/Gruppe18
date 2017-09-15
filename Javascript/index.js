@@ -1,4 +1,3 @@
-//Ikke gjør endringer i js filen, bare denne!!!
 class main {
     constructor(tall, test) {
         this.tall = tall;
@@ -14,4 +13,4 @@ class main {
 var dette = new main(12, "Hello World");
 console.log(dette.getTall());
 console.log(dette.getTest());
-
+console.log("DETTE ER BARE EN TEST");

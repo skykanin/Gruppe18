@@ -19,3 +19,4 @@ class main {
 var dette = new main(12, "Hello World");
 console.log(dette.getTall());
 console.log(dette.getTest());
+console.log("DETTE ER BARE EN TEST");
