@@ -10,11 +10,3 @@ trans.onmouseenter=()=>{
 trans.onmouseleave=()=>{
     img.style.filter="grayscale(100%) blur(10px)"
 }
-
-let manager = document.getElementById("nav").children[0]
-console.log(manager)
-
-manager.onclick = () => {
-    main.loadPage("manager.pug")
-}
-
