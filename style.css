@@ -8,24 +8,65 @@ body{
     color:white;
     margin-left:15vw;   
     font-size:1.4em;
-    line-height:7vh;
+    line-height:50px;
     transition: color .5s;
 }
-li:hover{
+#nav li:hover{
     cursor:pointer;
-    color:yellow;
+    color:#fff;
 }
 #nav{
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
     padding:0;
     position:fixed;
     background-color:#263238;
     left:0;   
     top:0;
-    height:7vh;  
+    height:50px;  
     margin:0; 
-    width:100vw;
+    width:calc(100vw - 100px);
+    z-index:5;
+}
+#buttons{
+    margin:0;
+    padding:0;
+    -webkit-user-select: none;
+    background-color:#263238; 
+    width:100px;
+    position: fixed;
+    right:0;
+    top:0;
+    z-index:6;
+    height:50px;
+}
+#buttons div{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    width:25px;
+    height:25px;
+    color:#ccc;
+    transition: color .5s;
+    text-align:center;
+
+}
+#close{
+    line-height:50px;
+    font-size:2em;
+}
+#minimize{
+    line-height:0px;
+}
+#maximize{
+    line-height:25px;
+    font-size:2em;
+}
+#buttons div:hover{
+    color:white;
+    cursor: pointer;
 }  
-img{
+#backgroundpic{
     z-index:-1;
     position:fixed;
     left:0;
@@ -74,10 +115,6 @@ h1{
   background-color: transparent;
 }
 
-body::-webkit-scrollbar-track-piece{
-  background-color: transparent;
-}
-
 ::-webkit-scrollbar-track-piece:no-button{
 }
 
@@ -94,4 +131,40 @@ body::-webkit-scrollbar-track-piece{
 
 ::-webkit-scrollbar-thumb:active{
   background-color: #333;
+}
+#wrapper{
+    backface-visibility: hidden;
+    position:fixed;
+    top:50px;
+    width:100vw;
+    overflow-x: hidden;
+    height:calc(100vh - 50px);
+}
+#p1{
+    z-index:8;
+    left:0;
+    top:0;
+    position: absolute;
+    height:inherit;
+}
+#p2{
+    z-index:9;
+    right:0;
+    top:0;
+    position: absolute;
+    height:inherit;
+}
+.imageslider{
+    width:100vw;
+    height:56.25vw;
+}
+.imageslider div{
+
+}
+#trackpiece{
+    height:inherit;
+    width:3px;
+    background-color:white;
+    border:1px solid #263238;
+    z-index:10;
 }
