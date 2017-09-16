@@ -1,6 +1,4 @@
-let remote = require('electron').remote;
-    img=document.getElementsByTagName("img")[0],
-    trans=document.getElementById("trans"),
+let remote = require('electron').remote,
     close=document.getElementById("close"),
     maximize=document.getElementById("maximize"),
     minimize=document.getElementById("minimize"),
@@ -9,12 +7,6 @@ let remote = require('electron').remote;
     slider1=document.getElementById("slider1"),
     slider2=document.getElementById("slider2"),
     p2=document.getElementById("p2");
-trans.onmouseenter=()=>{
-img.style.filter="grayscale(0) blur(0)"
-}
-trans.onmouseleave=()=>{
-img.style.filter="grayscale(100%) blur(10px)"
-}
 close.onclick=()=>{
     let window=remote.getCurrentWindow();
     window.close();

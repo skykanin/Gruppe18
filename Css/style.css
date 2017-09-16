@@ -28,6 +28,7 @@ body{
     margin:0; 
     width:calc(100vw - 100px);
     z-index:5;
+    box-shadow: 50px -48px 2px 50px black;
 }
 #buttons{
     margin:0;
@@ -79,14 +80,12 @@ body{
     left:0;
     top:0;
     width:100vw;
-    filter:grayscale(100%) blur(10px);
-    transition: filter .5s;
 }
 #trans{
     z-index:2;
     background-color:transparent;
     width:100vw;
-    height:200px;
+    height:400px;
     line-height:200px;
     text-align:center;
 }
@@ -114,24 +113,22 @@ h1{
     margin:0;
 }
 ::-webkit-scrollbar{
-  width: 9px;
-  height: 9px;
+    z-index:6;
+    width: 9px;
 }
 
 ::-webkit-scrollbar-track-piece{
-  background-color: hsl(200, 19%, 30%);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track-piece:no-button{
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: hsl(200, 19%, 15%);
+  background-color: hsl(200, 19%, 13%);
   border-radius: 3px;
-
 }
 #wrapper{
-    backface-visibility: hidden;
     position:fixed;
     top:50px;
     width:100vw;
@@ -161,10 +158,11 @@ h1{
 #trackpiece{
     height:inherit;
     width:3px;
-    background-color:black;
-    z-index:3;
+    background-color:hsl(200, 19%, 14%);;
+    z-index:2;
     position: absolute;
     left:calc(50vw - 2px);
+    box-shadow: 0 0 1px 1px black;
 }
 #trackpiece:hover{
     cursor:col-resize;
