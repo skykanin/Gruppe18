@@ -115,9 +115,11 @@ h1{
 ::-webkit-scrollbar{
     z-index:6;
     width: 9px;
+    height:9px;
 }
 
 ::-webkit-scrollbar-track-piece{
+    z-index:6;  
   background: transparent;
 }
 
@@ -125,6 +127,7 @@ h1{
 }
 
 ::-webkit-scrollbar-thumb{
+    z-index:6;
   background-color: hsl(200, 19%, 13%);
   border-radius: 3px;
 }
