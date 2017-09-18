@@ -1,3 +1,4 @@
+//Don't touch the js version of this ts document
 const remote = require('electron').remote;
 const main = remote.require('./main.js');
 var buttons = document.getElementsByClassName('buttons');
