@@ -3,7 +3,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
-const locals = {/* ...*/};
+const locals = {random: 'nå kan vi bruke locals'};
 require('electron-pug')({pretty: true}, locals);
 require('electron-reload')(__dirname);
 
