@@ -1,11 +1,12 @@
 'use strict';
 
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
-const locals = {random: 'nå kan vi bruke locals'};
+const locals = {username: 'Jimmy'};
 require('electron-pug')({pretty: true}, locals);
 require('electron-reload')(__dirname);
+let currentPage = ''
 
 let win
 
@@ -32,14 +33,20 @@ app.on('activate', () => {
     }
 })
 
-
-
-
 //call this to load a page!
 exports.loadPage = (relPath) => {
+    currentPage = relPath;
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'html/', relPath),
         protocol: 'file:',
         slashes: true
     }))
 }
+
+exports.changeUsername = (username) => {
+    locals.username = username
+};
+
+exports.reloadPage = () => {
+    exports.loadPage(currentPage)
+};

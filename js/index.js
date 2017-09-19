@@ -1,12 +1,11 @@
-const remote = require('electron').remote
-const main = remote.require('./main.js')
+// const remote = require('electron').remote
+// const main = remote.require('./main.js')
 
+let ubtn = document.getElementById('usernamebtn');
+let nameinput = document.getElementById('nameinput');
 
-let img=document.getElementsByTagName("img")[0],
-    trans=document.getElementById("trans");
-trans.onmouseenter=()=>{
-    img.style.filter="grayscale(0) blur(0)"
-}
-trans.onmouseleave=()=>{
-    img.style.filter="grayscale(100%) blur(10px)"
+ubtn.onclick = () => {
+    console.log(nameinput.value);
+    main.changeUsername(nameinput.value);
+    main.reloadPage();
 }
