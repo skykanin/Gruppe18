@@ -18,9 +18,6 @@ for(let i = 0; i < listElement.length; i++) {
     links[i].style.transform += "rotate("+String(-centralAngle*i)+"deg)";
 
     imgTags[i].src = "../images/menu icons/" + nameList[i];
-
-    // imgTags[i].style.left = String(130*Math.cos(2*Math.PI*i/listElement.length)) + "px";
-    // imgTags[i].style.top = String(110*Math.cos(2*Math.PI*i/listElement.length)) + "px";
     imgTags[i].id = "imgTag" + String(i);
 
 }
