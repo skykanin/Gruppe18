@@ -159,13 +159,11 @@ h1{
     position: relative;
 }
 #trackpiece{
-    height:inherit;
-    width:3px;
-    background-color:hsl(200, 19%, 14%);;
-    z-index:2;
+    width:200px;
+    z-index:3;
     position: absolute;
-    left:calc(50vw - 2px);
-    box-shadow: 0 0 1px 1px black;
+    left:calc(50vw - 200px);
+    top:calc(25vh - 100px);
 }
 #trackpiece:hover{
     cursor:col-resize;

@@ -24,13 +24,18 @@ maximize.onclick=()=>{
     }
 }
 trackpiece.onmousedown=function(e){
+    var startx=e.pageX,
+        lastpos=trackpiece.style.left.substr(0,trackpiece.style.left.length-2);
+    console.log(lastpos)
     window.onmousemove=function(e){
-        if(e.pageX+9+3<window.innerWidth && e.pageX-3>0){
-            trackpiece.style.left=e.pageX/window.innerWidth*100+"vw"
-            slider1.style.width=e.pageX/window.innerWidth*100+"vw"
-            slider2.style.left=e.pageX/window.innerWidth*100+"vw"
-            slider2.style.width=(window.innerWidth-e.pageX)/window.innerWidth*100+"vw"
-            p2.style.left=-e.pageX/window.innerWidth*100+"vw"
+        var delta=lastpos/100*window.innerWidth+startx-e.pageX;
+        console.log(delta-lastpos/100*window.innerWidth)
+        if(delta+9+3<window.innerWidth && delta+200-3>0){
+            trackpiece.style.left=(delta)/window.innerWidth*100+"vw"
+            slider1.style.width=(delta+200)/window.innerWidth*100+"vw"
+            slider2.style.left=(delta+200)/window.innerWidth*100+"vw"
+            slider2.style.width=(window.innerWidth-delta-200)/window.innerWidth*100+"vw"
+            p2.style.left=-(delta+200)/window.innerWidth*100+"vw"
         }
     }
 }
