@@ -5,35 +5,31 @@ html, body {
     margin: 0;
 }
 #wheel {
-    width: 600px;
-    height: 600px;
-    position: relative;
-    top: calc(50% - 300px);
-    left: calc(50% - 300px);
-    background-color: rgb(0, 162, 255);
-    border-radius: 100%;
-    text-align: center;
-    position: relative;
-}
-
-#innerWheel {
     width: 400px;
     height: 400px;
     position: relative;
     top: calc(50% - 200px);
     left: calc(50% - 200px);
-    display:table;
-    background-color: red;
+    background-color: rgb(0, 162, 255);
     border-radius: 100%;
-}
-#innerWheel h1 {
-    display:table-cell;
-    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    /*overflow: hidden;*/
 }
 
-.buttons {
+li {
+    width: 198px;
+    height: 198px;
+    bottom: 200px;
+    right: 200px;
     position: absolute;
-    z-index: 1;
-    width: 60px;
-    height: 60px;
+    border: 1px solid black;
+    list-style-type: none;
+    background-color: rgba(200, 100, 0, 0.2);
+    transform-origin: right bottom;
+}
+.images {
+    position: absolute;
+    transform-origin: 100% 100%;
+    text-align: center;
 }
