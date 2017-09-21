@@ -9,10 +9,7 @@ let home = document.getElementById("home"),
     minimize = document.getElementById("minimize"),
     nav = document.getElementById("nav");
 
-    var drag = require('electron-drag');
-    
-    
-   var clear = drag('#nav');
+//nav buttons
 close.onclick = () => {
     let window = remote.getCurrentWindow();
     window.close();
