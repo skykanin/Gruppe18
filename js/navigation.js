@@ -8,6 +8,11 @@ let home = document.getElementById("home"),
     maximize = document.getElementById("maximize"),
     minimize = document.getElementById("minimize"),
     nav = document.getElementById("nav");
+
+    var drag = require('electron-drag');
+    
+    
+   var clear = drag('#nav');
 close.onclick = () => {
     let window = remote.getCurrentWindow();
     window.close();
@@ -25,7 +30,6 @@ maximize.onclick = () => {
     }
 }
 
-console.log(manager)
 
 home.onclick = () => {
     main.loadPage("index.pug")
