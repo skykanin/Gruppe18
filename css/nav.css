@@ -1,0 +1,22 @@
+#nav{
+    padding:0;
+    background-color:#263238;
+    left:0;
+    top:0;
+    height:7vh;
+    margin:0;
+    width:100vw;
+}
+
+#nav li{
+    display:inline-block;
+    color:white;
+    margin-left:5vw;
+    font-size:1.4em;
+    line-height:7vh;
+    transition: color .5s;
+}
+li:hover{
+    cursor:pointer;
+    color:yellow;
+}

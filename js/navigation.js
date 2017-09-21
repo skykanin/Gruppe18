@@ -1,13 +1,17 @@
-const remote = require('electron').remote
-const main = remote.require('./main.js')
-
 let home = document.getElementById("home"),
-    manager = document.getElementById("manager"),
-    konserter = document.getElementById("konserter"),
+    manager = document.getElementById('man'),
+    bookresp = document.getElementById('bookresp'),
+    bookchief = document.getElementById("bookchief"),
+    arranger = document.getElementById("arr"),
+    tech = document.getElementById("tech"),
+
     close = document.getElementById("close"),
     maximize = document.getElementById("maximize"),
     minimize = document.getElementById("minimize"),
+
     nav = document.getElementById("nav");
+
+
 close.onclick = () => {
     let window = remote.getCurrentWindow();
     window.close();
@@ -32,10 +36,21 @@ home.onclick = () => {
 }
 
 manager.onclick = () => {
-    main.loadPage("manager.pug")
+    main.loadPage("man-main.pug")
 }
 
-konserter.onclick = () => {
-    main.loadPage("konserter.pug")
+bookchief.onclick = () => {
+    main.loadPage("bookchief-main.pug")
 }
 
+bookresp.onclick = () => {
+    main.loadPage("bookresp-main.pug")
+}
+
+arranger.onclick = () => {
+    main.loadPage("arr-main.pug")
+}
+
+tech.onclick = () => {
+    main.loadPage("tech-main.pug")
+}

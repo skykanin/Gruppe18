@@ -1,5 +1,3 @@
-// const remote = require('electron').remote
-// const main = remote.require('./main.js')
 
 let ubtn = document.getElementById('usernamebtn'),
     nameinput = document.getElementById('nameinput');
