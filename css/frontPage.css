@@ -10,7 +10,7 @@ html, body {
     position: relative;
     top: calc(50% - 300px);
     left: calc(50% - 300px);
-    background-color: rgb(0, 162, 255);
+    background-color: rgb(255, 255, 255);
     border: 2px solid black;
     border-radius: 100%;
     text-align: center;
@@ -18,6 +18,16 @@ html, body {
     overflow: hidden;
 }
 
+#innerWheel {
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    top: calc(50% - 125px);
+    left: calc(50% - 125px);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 100%;
+}
 li {
     width: 298px;
     height: 298px;
@@ -28,6 +38,12 @@ li {
     list-style-type: none;
     transform-origin: right bottom;
     text-align: center;
+}
+
+
+li:hover {
+    background-color: rgb(89, 0, 255);
+    opacity: 0.8;
 }
 
 .links {
@@ -43,9 +59,6 @@ li {
     height: 90px;
 }
 
-li:hover {
-    background-color: rgb(89, 0, 255);
-}
 
 #imgTag0 {
     left: 230px;
@@ -53,11 +66,11 @@ li:hover {
 }
 #imgTag1 {
     left: -15px;
-    top: 300px;
+    top: 285px;
 }
 #imgTag2 {
     left: -260px;
-    top: 215px;
+    top: 205px;
 }
 #imgTag3 {
     left: -360px;
