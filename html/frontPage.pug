@@ -1,0 +1,17 @@
+extends layout
+
+block head
+    title Front Page
+    link(rel="stylesheet" type="text/css" href="../css/frontPage.css")
+
+block content 
+    div#wheel
+        ul.list
+        each val in [1,2,3,4,5,6,7,8]
+            li.listIndex
+                a(class="links" href="#")
+                    img.images
+    div#innerWheel
+
+block scripts
+    script(src="../js/frontPage.js")
