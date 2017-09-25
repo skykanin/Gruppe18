@@ -10,7 +10,7 @@ require('electron-reload')(__dirname);
 let win
 
 function createWindow () {
-    win = new BrowserWindow({width: 1000, height: 1000, frame:true})
+    win = new BrowserWindow({width: 1000, height: 1000, frame:false, titleBarStyle : 'hidden-inset'})
     exports.loadPage('frontPage.pug')
     win.webContents.openDevTools()
     win.on('closed', () => {
