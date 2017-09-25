@@ -10,9 +10,10 @@
      ],
       "noImplicitAny": true,
       "strictNullChecks": true,  
-      "removeComments": true
+      "removeComments": false,
+      "outDir": "./js"
   },
   "files": [
-    "js/index.ts"
+    "./ts/frontPage.ts"
   ]
 }

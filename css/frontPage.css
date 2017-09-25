@@ -1,0 +1,95 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#wheel {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    top: calc(50vh - 300px);
+    left: calc(50vw - 300px);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 100%;
+    text-align: center;
+    overflow: hidden;
+    position: fixed;
+}
+
+#innerWheel {
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    top: calc(50vh - 125px);
+    left: calc(50vw - 125px);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 100%;
+}
+li {
+    width: 298px;
+    height: 298px;
+    bottom: 300px;
+    right: 300px;
+    position: absolute;
+    border: 1px solid black;
+    list-style-type: none;
+    transform-origin: right bottom;
+    text-align: center;
+}
+
+
+li:hover {
+    background-color: rgb(89, 0, 255);
+    opacity: 0.65;
+}
+
+.links {
+    position: absolute;
+    transform-origin: 100% 100%;
+    text-align: center;
+}
+
+.images {
+    position: absolute;
+    transform-origin: 100% 100%;
+    text-align: center;
+    height: 90px;
+    user-select: none;
+}
+
+
+#imgTag0 {
+    left: 230px;
+    top: 180px;
+}
+#imgTag1 {
+    left: -30px;
+    top: 285px;
+}
+#imgTag2 {
+    left: -260px;
+    top: 205px;
+}
+#imgTag3 {
+    left: -360px;
+    top: -10px;
+}
+#imgTag4 {
+    left: -300px;
+    top: -275px;
+}
+#imgTag5 {
+    left: -70px;
+    top: -390px;
+}
+#imgTag6 {
+    left: 180px;
+    top: -310px;
+}
+#imgTag7 {
+    left: 310px;
+    top: -80px;
+}
