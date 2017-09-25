@@ -12,7 +12,7 @@ let win
 
 function createWindow () {
     win = new BrowserWindow({width: 1000, height: 800, frame:false})
-    exports.loadPage('index.pug')
+    exports.loadPage('frontPage.pug')
     win.webContents.openDevTools()
     win.on('closed', () => {
     win = null
