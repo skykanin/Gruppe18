@@ -1,7 +1,27 @@
 extends layout
 
+block head
+    link(rel="stylesheet" type="text/css" href="../css/loginPage.css")
 block content
+    h1#title Welcome to the login screen
     div#login
+        form#loginForm
+            p
+                input(type="text" id="username" placeholder="Username")
+                img(src="../images/login icons/userIcon.png" alt="lock png" id="userIcon")
+            p
+                input(type="password" id="password" placeholder="Password")
+                img(src="../images/login icons/lockIcon.png" alt="lock png" id="lockIcon")
+            p
+                select(name="User Selection" id="userSelection")
+                    - var values = ["Select user type", "Administrator","Bookingmanager", "Technician", "4", "5"]
+                    for val in values
+                        if (val === values[0])
+                           option(value="" disabled selected)= val
+                        else
+                            option(value=val)= val
+            p
+                button#loginButton Log in
 
 block scripts
     script(src="../js/loginPage.js")
