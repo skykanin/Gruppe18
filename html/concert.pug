@@ -1,0 +1,66 @@
+extends layout
+
+block content
+    //the page has to get concerts and concert information from backend
+    //how????
+
+    //example concert until backend is availeble
+    //bandName:date and time:bandinfo:stage:genre:audience:cost:profit:concertID
+    //
+
+    //we pressent the concerts as a list and style them with css
+    p This is the page for the concerts
+    p dette er en test
+    ul#concertList
+
+    table#concertTable
+      tr
+        th Band Name
+        th Date
+        th Band Info
+        th Stage
+        th Genre
+        th Audience
+        th Cost
+        th Profit
+        th ConcertIDTag
+
+
+    //form for regestrering a concert
+    form(method='POST' onClick='false').form
+      //generate a concertID
+      div.form-group
+        label(for='bandName') Band Name:
+        input#name.form-control(type='text' placeholder='' name='')
+      div.form-group
+        label(for='bandInfo') Band info:
+        input#bandInfo.form-control(type='text' placeholder='' name='')
+      div.form-group
+        label(for='date') Date for concert:
+        input#date.form-control(type='date' placeholder='' name='')
+      div.form-group
+        label(for='stage') Stage:
+        select#stage.form-control(name='stage')
+          option(value='apollo') apollo
+          option(value='orange') orange
+      div.form-group
+        label(for='genre') Genre:
+        select#genre.form-control(name='genre')
+          option(value='rock') rock
+          option(value='pop') pop
+      div.form-group
+        label(for='audience') Size of audience (?):
+        input#audience.form-control(type='number' placeholder='' name='audience')
+      div.form-group
+        label(for='cost') Cost:
+        input#cost.form-control(type='number' placeholder='' name='cost')
+      div.form-group
+        label(for='profit') profit(or revenue?):
+        input#profit.form-control(type='number' placeholder='' name='profit')
+      button.btn.btn-primary(type='submit') Submit
+
+block scripts
+    script(src="../js/concert.js")
+
+block head
+  link(rel="stylesheet" type="text/css" href="../css/concert.css")
