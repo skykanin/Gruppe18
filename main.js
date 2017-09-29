@@ -1,5 +1,6 @@
 'use strict';
 
+const mysql = require('mysql')
 const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
@@ -9,6 +10,13 @@ require('electron-reload')(__dirname);
 let currentPage = ''
 
 let win
+
+exports.connection = mysql.createConnection({
+    host: 'mysql.stud.ntnu.no',
+    user: 'andrris_gruppe18',
+    password: 'cdji2005',
+    database: 'andrris_gruppe18',
+})
 
 function createWindow () {
     win = new BrowserWindow({width: 1000, height: 800, frame:false})
@@ -50,3 +58,19 @@ exports.changeUsername = (username) => {
 exports.reloadPage = () => {
     exports.loadPage(currentPage)
 };
+
+exports.SQLquery = (query, resolve) => {
+    exports.connection.connect((err) => {
+        if(err) {
+            return console.log(err.stack)
+        }
+        console.log('Successfully connected to MySQL server')
+    })
+
+    exports.connection.query(query, (err, rows, fields) => {
+        if (err) {
+            return console.log('Error w/ query')
+        }
+        resolve(rows)
+    })
+}

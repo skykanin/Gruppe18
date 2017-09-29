@@ -16,3 +16,8 @@ document.getElementById("close").addEventListener("click", (e) => {
     var window = remote.getCurrentWindow();
     window.close();
 });
+
+document.getElementById("home").addEventListener("click", (e) => {
+    main.loadPage('frontPage.pug')
+
+});

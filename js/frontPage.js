@@ -13,3 +13,7 @@ for (let i = 0; i < listElement.length; i++) {
     imgTags[i].src = "../images/menu icons/" + nameList[i];
     imgTags[i].id = "imgTag" + String(i);
 }
+
+listElement[0].onclick = () => {
+    main.loadPage('arr-main.pug')
+}
