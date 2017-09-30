@@ -2,9 +2,10 @@ extends layout
 
 block head
     link(rel="stylesheet" type="text/css" href="../css/loginPage.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato")
 block content
-    h1#title Welcome to the login screen
     div#login
+        h2#title Log in to your account
         form#loginForm
             p
                 input(type="text" id="username" placeholder="Username")
@@ -22,6 +23,7 @@ block content
                             option(value=val)= val
             p
                 button#loginButton Log in
+        a(href="#" id="registerLink") Don't have an account? Register here
 
 block scripts
     script(src="../js/loginPage.js")
