@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/skykanin/Gruppe18#readme",
   "dependencies": {
+    "dateformat": "^3.0.2",
     "electron": "^1.7.6",
     "electron-pug": "^1.5.1",
     "electron-reload": "^1.2.1",
     "mysql": "^2.14.1",
-    "pug": "^2.0.0-rc.4",
     "typescript": "^2.5.2"
   }
 }

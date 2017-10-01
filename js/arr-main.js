@@ -1,10 +1,15 @@
-let concertlist = document.getElementById('concertlist')
-let query = 'SELECT * FROM `FESTIVAL`'
+festivalrows = Array.from(document.getElementsByClassName('festivalrows'))
 
-main.SQLquery(query, (response) => {
-    response.forEach((x) => {
-        let li = document.createElement('LI')
-        li.innerHTML = x.name
-        concertlist.appendChild(li)
-    })
+festivalrows.forEach((x) => {
+    x.onclick = () => {
+        let concerts = x.nextElementSibling
+        if(concerts.style.display == 'table-row') {
+            concerts.style.display = 'none'
+        }
+        else {
+            concerts.style.display = 'table-row'
+        }
+    }
 })
+
+

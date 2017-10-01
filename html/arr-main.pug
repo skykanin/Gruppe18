@@ -3,7 +3,35 @@ extends layout
 block content
     div#maindiv
         h1 Festivaler:
-        ul#concertlist
+        div.contentdivs#leftdiv
+            table
+                each festival in locals.festivals
+                    tr.festivalrows
+                        td= festival.navn
+                        td= festival.start
+                        td= festival.slutt
+                    tr.concertrows
+                        td(colspan='6')
+                            table
+                                tr
+                                    th Band
+                                    th Scene
+                                    th Start
+                                    th Varighet
+                                    th Publikum
+                                    th Bookingansvarlig
+
+                                each concert in festival.concerts
+                                    tr
+                                        td= concert.band
+                                        td= concert.scene
+                                        td= concert.start
+                                        td= concert.duration
+                                        td= concert.audience
+                                        td= concert.bookingansvarlig
+
+        div.contentdivs#rightdiv
+
 
 
 

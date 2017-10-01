@@ -71,6 +71,10 @@ exports.SQLquery = (query, resolve) => {
         if (err) {
             return console.log('Error w/ query')
         }
-        resolve(rows)
+        resolve(rows, fields)
     })
 }
+
+var Festivals = require(path.resolve('js/objects/Festivals'))
+Festivals.reloadFestivals()
+locals.festivals = Festivals.festivals
