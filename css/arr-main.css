@@ -1,17 +1,20 @@
 body {
-    background-color: aliceblue;
+    background-color: #D6D5C9;
     margin: 0;
     padding: 0;
+    color: #0A100D;
 }
 
 h1 {
     margin: 20px;
+    color: #0A100D;
+
 }
 
 #maindiv {
     margin-top: 100px;
     width: 90vw;
-    background-color: #333333;
+    background-color: #A22C29;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -59,7 +62,12 @@ th {
 }
 
 tr:hover {
-    background-color: #364248;
+    background-color: #902923;
     color: white;
     cursor: pointer;
+}
+
+.tablecontainer {
+    background-color: #B9BAA3;
+
 }

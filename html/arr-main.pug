@@ -2,7 +2,7 @@ extends layout
 
 block content
     div#maindiv
-        h1 Festivaler:
+        //h1 Festivaler:
         div.contentdivs#leftdiv
             table
                 each festival in locals.festivals
@@ -11,7 +11,7 @@ block content
                         td= festival.start
                         td= festival.slutt
                     tr.concertrows
-                        td(colspan='6')
+                        td(colspan='6').tablecontainer
                             table
                                 tr
                                     th Band
