@@ -24,14 +24,14 @@ html, body {
     width: 300px;
     height: 30px;
     text-align: center;
-    top: calc(50% - 180px);
+    top: calc(50% - 200px);
     left: calc(50% - 150px);
     color: white;
 }
 
 form > p {
     position: relative;
-    top: 50px;
+    top: 15px;
 }
 
 p > input {
@@ -50,32 +50,18 @@ input::-webkit-input-placeholder {
     color: #666161;
 }
 
-#userIcon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: calc(50% + 70px);
-    top: calc(50% - 15px);
-}
-
-#lockIcon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    left: calc(50% + 70px);
-    top: calc(50% - 15px);
-}
-
-#errorMessage {
+p > select {
     position: relative;
-    display: block;
-    width: 300px;
-    height: 20px;
-    left: calc(50% - 150px);
-    color: #EEAF3B;
-    font-size: 0.95em;
-    text-align: center;
+    width: 200px;
+    height: 40px;
+    left: calc(50% - 100px);
+    border: 1px solid white;
+    border-radius: 4px;
+    padding-left: 5px;
+    margin-bottom: 25px;
+    box-shadow: 3px 3px 5px #444;
 }
+
 #loginButton {
     position: relative;
     width: 200px;
@@ -91,14 +77,13 @@ input::-webkit-input-placeholder {
 }
 
 #loginButton:hover {
-    background-color: rgba(238,175,59, 1);
-    border-color: rgba(238,175,59, 1);
+    background-color: rgba(238,175,59, 0.9);
+    border-color: rgba(238,175,59, 0.9);
 }
 
 #registerLink {
     position: relative;
     display: block;
-    top: 45px;
     left: 100px;
     width: 200px;
     height: 50px;

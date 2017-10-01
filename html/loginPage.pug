@@ -8,22 +8,16 @@ block content
         h2#title Log in to your account
         form#loginForm
             p
-                input(type="text" id="username" placeholder="Username")
+                input(type="text" id="username" placeholder="Username" value="")
                 img(src="../images/login icons/userIcon.png" alt="lock png" id="userIcon")
             p
-                input(type="password" id="password" placeholder="Password")
+                input(type="password" id="password" placeholder="Password" value="")
                 img(src="../images/login icons/lockIcon.png" alt="lock png" id="lockIcon")
             p
-                select(name="User Selection" id="userSelection")
-                    - var values = ["Select user type", "Administrator","Bookingmanager", "Technician", "4", "5"]
-                    for val in values
-                        if (val === values[0])
-                           option(value="" disabled selected)= val
-                        else
-                            option(value=val)= val
+                span#errorMessage
             p
-                button#loginButton Log in
-        a(href="#" id="registerLink") Don't have an account? Register here
+                button(id="loginButton" onclick="return false") Log in
+        a(href="registerPage.pug" id="registerLink") Don't have an account? Register here
 
 block scripts
     script(src="../js/loginPage.js")
