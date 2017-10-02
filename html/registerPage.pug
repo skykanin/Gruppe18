@@ -8,13 +8,13 @@ block content
         h2#title Register an account
         form#loginForm
             p
-                input(type="text" id="username" placeholder="Username")
+                input(type="text" id="username" placeholder="Username" required)
             p
-                input(type="password" id="password" placeholder="Password")
+                input(type="password" id="passwordOne" placeholder="Password" required)
             p
-                input(type="password" id="password" placeholder="Password")
+                input(type="password" id="passwordTwo" placeholder="Password" required)
             p
-                select(name="User Selection" id="userSelection")
+                select(name="User Selection" id="userSelection" required)
                     - var values = ["Select user type", "Administrator","Bookingmanager", "Technician", "4", "5"]
                     for val in values
                         if (val === values[0])
@@ -22,7 +22,7 @@ block content
                         else
                             option(value=val)= val
             p
-                button#loginButton Register
+                button(id="loginButton" onclick="return false") Register
 
 block scripts
     script(src="../js/registerPage.js")

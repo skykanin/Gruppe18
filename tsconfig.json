@@ -15,6 +15,7 @@
   },
   "files": [
     "./ts/frontPage.ts",
-    "./ts/loginPage.ts"
+    "./ts/loginPage.ts",
+    "./ts/registerPage.ts"
   ]
 }

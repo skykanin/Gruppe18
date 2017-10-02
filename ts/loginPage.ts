@@ -1,4 +1,6 @@
 //Don't edit the js version of this ts document
+var mysql = require('mysql');
+
 class Login {
     usernameField = document.getElementById('username') as HTMLInputElement;
     passwordField = document.getElementById('password') as HTMLInputElement;
@@ -9,25 +11,25 @@ class Login {
 
     constructor() {
         this.loginButton.addEventListener("click", () => {
-            this.readLoginInfo();
+            this.validateForm();
             return false; //Prevents page from reloading
         });
     }
 
-    readLoginInfo() {
-        if (this.usernameField.value != null && this.usernameField.value != undefined && this.usernameField.value != '' && this.passwordField.value != null && this.passwordField.value != undefined && this.passwordField.value != '') {
+    validateForm():void {
+        if (this.usernameField.value != null && this.usernameField.value != '' && this.passwordField.value != null && this.passwordField.value != '') {
             this.username = this.usernameField.value;
             this.password = this.passwordField.value;
             console.log(this.username);
             console.log(this.password);
             this.errorField.innerHTML = '';
         }
-        else if (this.usernameField.value != null && this.usernameField.value != undefined && this.usernameField.value != '') {
+        else if (this.usernameField.value != null && this.usernameField.value != '') {
             this.username = this.usernameField.value;
             console.log(this.username);
             this.errorField.innerHTML = 'Missing password';
         }
-        else if (this.passwordField.value != null && this.passwordField.value != undefined && this.passwordField.value != '') {
+        else if (this.passwordField.value != null && this.passwordField.value != '') {
             this.password = this.passwordField.value;
             console.log(this.password);
             this.errorField.innerHTML = 'Missing username';
