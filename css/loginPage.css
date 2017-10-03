@@ -76,6 +76,7 @@ input::-webkit-input-placeholder {
     font-size: 0.95em;
     text-align: center;
 }
+
 #loginButton {
     position: relative;
     width: 200px;

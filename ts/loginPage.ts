@@ -1,5 +1,5 @@
 //Don't edit the js version of this ts document
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 class Login {
     usernameField = document.getElementById('username') as HTMLInputElement;

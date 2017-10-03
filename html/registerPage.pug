@@ -12,7 +12,7 @@ block content
             p
                 input(type="password" id="passwordOne" placeholder="Password" required)
             p
-                input(type="password" id="passwordTwo" placeholder="Password" required)
+                input(type="password" id="passwordTwo" placeholder="Re-Enter Password" required)
             p
                 select(name="User Selection" id="userSelection" required)
                     - var values = ["Select user type", "Administrator","Bookingmanager", "Technician", "4", "5"]
@@ -22,7 +22,10 @@ block content
                         else
                             option(value=val)= val
             p
+                span#errorMessage
+            p
                 button(id="loginButton" onclick="return false") Register
 
 block scripts
+    script var exports = {};
     script(src="../js/registerPage.js")
