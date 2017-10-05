@@ -10,7 +10,6 @@ class Login {
     connection: mysql.IConnection;
     username: string;
     password: string;
-    databasePassword: string;
 
     constructor() {
         this.connection = mysql.createConnection({
