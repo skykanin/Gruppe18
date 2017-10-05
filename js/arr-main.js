@@ -13,10 +13,10 @@ festivalrows.forEach((x) => {
     }
 })
 
-concertrows = Array.from(document.getElementsByClassName('concertrows'))
+concertrow = Array.from(document.getElementsByClassName('concertrow'))
 techtable = document.getElementById('techtable')
 
-concertrows.forEach((x) => {
+concertrow.forEach((x) => {
 
     x.onclick = () => {
         techtable.innerHTML = ''
@@ -31,9 +31,9 @@ concertrows.forEach((x) => {
         tr.appendChild(tlf)
         tr.appendChild(email)
         techtable.appendChild(tr)
-        id = x.getElementById('concertid').innerHTML
-        x = locals.concerts.getConcertByConcertID(id)
-        x.getTechs().forEach((y) => {
+        id = x.querySelector('.concertids').innerHTML
+        concert = locals.concerts.getConcertByConcertID(id)
+        concert.getTechs().forEach((y) => {
             tr = document.createElement('TR')
             navn = document.createElement('TD')
             tlf = document.createElement('TD')

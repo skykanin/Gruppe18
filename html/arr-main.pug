@@ -2,7 +2,6 @@ extends layout
 
 block content
     div#maindiv
-        //h1 Festivaler:
         div.contentdivs#leftdiv
             table
                 each festival in locals.festivals
@@ -22,8 +21,8 @@ block content
                                     th Publikum
                                     th Bookingansvarlig
                                 each concert in locals.concerts.getConcertsByFestivalID(festival.id)
-                                    tr
-                                        td#concertid= concert.id
+                                    tr.concertrow
+                                        td.concertids= concert.id
                                         td= concert.band
                                         td= concert.scene
                                         td= concert.start
