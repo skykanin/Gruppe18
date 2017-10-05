@@ -12,4 +12,3 @@ festivalrows.forEach((x) => {
     }
 })
 
-

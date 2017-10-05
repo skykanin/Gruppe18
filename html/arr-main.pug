@@ -20,8 +20,7 @@ block content
                                     th Varighet
                                     th Publikum
                                     th Bookingansvarlig
-
-                                each concert in festival.concerts
+                                each concert in locals.concerts.getConcertsByFestivalID(festival.id)
                                     tr
                                         td= concert.band
                                         td= concert.scene
@@ -31,6 +30,12 @@ block content
                                         td= concert.bookingansvarlig
 
         div.contentdivs#rightdiv
+            table
+                each user in locals.concerts.getConcertByConcertID(5).techs
+                    tr.festivalrows
+                        td= user.navn
+                        td= user.tlf
+                        td= user.email
 
 
 

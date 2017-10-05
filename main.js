@@ -75,6 +75,10 @@ exports.SQLquery = (query, resolve) => {
     })
 }
 
-var Festivals = require(path.resolve('js/objects/Festivals'))
-Festivals.reloadFestivals()
-locals.festivals = Festivals.festivals
+var dataObjects = require(path.resolve('js/objects/DataObjects'))
+dataObjects.reloadConcerts()
+dataObjects.reloadFestivals()
+dataObjects.reloadUsers()
+locals.concerts = dataObjects.concerts
+locals.festivals = dataObjects.festivals
+locals.users = dataObjects.users
