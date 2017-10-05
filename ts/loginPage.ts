@@ -1,6 +1,8 @@
 //Don't edit the js version of this ts document
 import * as mysql from 'mysql';
 import * as passwordHAS from 'password-hash-and-salt';
+import * as mainFile from '../main.js';
+
 
 class Login {
     usernameField = document.getElementById('username') as HTMLInputElement;
