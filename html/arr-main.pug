@@ -14,6 +14,7 @@ block content
                         td(colspan='6').tablecontainer
                             table
                                 tr
+                                    th ID
                                     th Band
                                     th Scene
                                     th Start
@@ -22,6 +23,7 @@ block content
                                     th Bookingansvarlig
                                 each concert in locals.concerts.getConcertsByFestivalID(festival.id)
                                     tr
+                                        td#concertid= concert.id
                                         td= concert.band
                                         td= concert.scene
                                         td= concert.start
@@ -30,12 +32,11 @@ block content
                                         td= concert.bookingansvarlig
 
         div.contentdivs#rightdiv
-            table
-                each user in locals.concerts.getConcertByConcertID(5).techs
-                    tr.festivalrows
-                        td= user.navn
-                        td= user.tlf
-                        td= user.email
+            table#techtable
+                tr
+                    th= Navn
+                    th= Tlf
+                    th= Email
 
 
 

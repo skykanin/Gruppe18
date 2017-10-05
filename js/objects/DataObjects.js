@@ -26,6 +26,9 @@ class Concert {
         this.festival = festival
         this.techs = []
     }
+    getTechs() {
+        return this.techs
+    }
     addTech(user) {
         this.techs.push(user)
     }
@@ -87,7 +90,6 @@ class Users {
 }
 
 //////////// loads/reloads the objects
-
 
 exports.festivals = []
 exports.concerts = new Concerts()

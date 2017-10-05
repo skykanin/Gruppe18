@@ -4,8 +4,8 @@ const mysql = require('mysql')
 const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
-const locals = {username: 'Jimmy'};
-require('electron-pug')({pretty: true}, locals);
+exports.locals = {};
+require('electron-pug')({pretty: true}, exports.locals);
 require('electron-reload')(__dirname);
 let currentPage = ''
 
@@ -79,6 +79,6 @@ var dataObjects = require(path.resolve('js/objects/DataObjects'))
 dataObjects.reloadConcerts()
 dataObjects.reloadFestivals()
 dataObjects.reloadUsers()
-locals.concerts = dataObjects.concerts
-locals.festivals = dataObjects.festivals
-locals.users = dataObjects.users
+exports.locals.concerts = dataObjects.concerts
+exports.locals.festivals = dataObjects.festivals
+exports.locals.users = dataObjects.users

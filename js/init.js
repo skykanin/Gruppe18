@@ -2,4 +2,5 @@
 const remote = require('electron').remote
 const main = remote.require('./main.js')
 const dateFormat = require('dateformat');
-const path = require('path');
+const path = require('path')
+locals = main.locals
