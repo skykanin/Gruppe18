@@ -1,77 +1,73 @@
-import * as mysql from 'mysql';
-import * as passwordHAS from 'password-hash-and-salt';
-import * as mainFile from '../main.js';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const passwordHAS = require("password-hash-and-salt");
+const mainFile = require("../main.js");
 class Register {
-    usernameField = document.getElementById('username') as HTMLInputElement;
-    passwordFieldOne = document.getElementById('passwordOne') as HTMLInputElement;
-    passwordFieldTwo = document.getElementById('passwordTwo') as HTMLInputElement;
-    selectField = document.getElementById('userSelection') as HTMLSelectElement;
-    errorField = document.getElementById('errorMessage') as HTMLElement;
-    loginButton = document.getElementById('loginButton') as HTMLButtonElement;
-    connection: mysql.IConnection;
-    username: string;
-    password: string;
-    userType: string;
-
     constructor() {
+        this.usernameField = document.getElementById('username');
+        this.passwordFieldOne = document.getElementById('passwordOne');
+        this.passwordFieldTwo = document.getElementById('passwordTwo');
+        this.selectField = document.getElementById('userSelection');
+        this.errorField = document.getElementById('errorMessage');
+        this.loginButton = document.getElementById('loginButton');
         this.connection = mainFile.connection;
         //this.connection.connect();
-        this.loginButton.addEventListener("click", (e: any) => {
+        this.loginButton.addEventListener("click", (e) => {
             e.preventDefault();
             var validate = this.validateForm();
-            if(validate) {
+            if (validate) {
                 var duplicate = this.checkUsernameDuplicate();
-                if(!duplicate) {
+                if (!duplicate) {
                     this.hashAndSaltPassword();
                 }
             }
         });
     }
-
-    validateForm(): boolean {
-        if(this.checkPasswordEquals() && !this.checkEmpty()) {
+    validateForm() {
+        if (this.checkPasswordEquals() && !this.checkEmpty()) {
             //console.log([this.usernameField.value, this.passwordFieldOne.value, this.passwordFieldTwo.value, this.selectField.value]);
             this.errorField.innerHTML = '';
             this.username = this.usernameField.value;
             this.password = this.passwordFieldOne.value;
             this.userType = this.selectField.value;
             return true;
-        } else if (this.checkEmpty()) {
+        }
+        else if (this.checkEmpty()) {
             this.errorField.innerHTML = "One or several fields are empty";
             return false;
         }
-        else if(!this.checkPasswordEquals()) {
+        else if (!this.checkPasswordEquals()) {
             this.errorField.innerHTML = "Passwords don't match";
             return false;
-        } else {
+        }
+        else {
             this.errorField.innerHTML = "Unknown error";
             return false;
         }
     }
-
-    checkPasswordEquals(): boolean {
-        if(this.passwordFieldOne.value == this.passwordFieldTwo.value) {
+    checkPasswordEquals() {
+        if (this.passwordFieldOne.value == this.passwordFieldTwo.value) {
             return true;
-        } else {
+        }
+        else {
             return false;
         }
     }
-
-    checkEmpty():boolean {
-        if(this.usernameField.value == '' || this.passwordFieldOne.value == '' || this.passwordFieldTwo.value == '' || this.selectField.value == '') {
+    checkEmpty() {
+        if (this.usernameField.value == '' || this.passwordFieldOne.value == '' || this.passwordFieldTwo.value == '' || this.selectField.value == '') {
             return true;
-        } else return false;
+        }
+        else
+            return false;
     }
-
-    checkUsernameDuplicate():boolean {
+    checkUsernameDuplicate() {
         this.connection.query('SELECT * from USER', (err, result) => {
-            if(err) {
+            if (err) {
                 console.log(err);
                 return true;
             }
-            for(let i = 0; i < result.length; i++) {
-                if(this.username == result[i].username) { //checks if username already exists in database
+            for (let i = 0; i < result.length; i++) {
+                if (this.username == result[i].username) {
                     this.errorField.innerHTML = "Username is already taken";
                     return true;
                 }
@@ -79,29 +75,26 @@ class Register {
         });
         return false;
     }
-
-    insertIntoDatabase(hash: any):void {
+    insertIntoDatabase(hash) {
         this.connection.query(`INSERT INTO USER VALUES ('${this.username}', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
-            if(error) {
+            if (error) {
                 throw error;
-            } else {
+            }
+            else {
                 this.errorField.style.color = '#FFF400';
                 this.errorField.innerHTML = 'Account has been registered!';
             }
         });
     }
-
-    hashAndSaltPassword():void {
+    hashAndSaltPassword() {
         passwordHAS(this.password).hash((error, hash) => {
-            if(error) {
+            if (error) {
                 throw new Error('Something went wrong');
             }
             this.insertIntoDatabase(hash);
         });
     }
-
 }
-
 window.onload = () => {
     let register = new Register();
-}
+};

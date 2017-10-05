@@ -1,29 +1,23 @@
-//Don't edit the js version of this ts document
-import * as mysql from 'mysql';
-import * as passwordHAS from 'password-hash-and-salt';
-import * as mainFile from '../main.js';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const passwordHAS = require("password-hash-and-salt");
+const mainFile = require("../main.js");
 class Login {
-    usernameField = document.getElementById('username') as HTMLInputElement;
-    passwordField = document.getElementById('password') as HTMLInputElement;
-    errorField = document.getElementById('errorMessage') as HTMLElement;
-    loginButton = document.getElementById('loginButton') as HTMLButtonElement;
-    connection: mysql.IConnection;
-    username: string;
-    password: string;
-
     constructor() {
+        this.usernameField = document.getElementById('username');
+        this.passwordField = document.getElementById('password');
+        this.errorField = document.getElementById('errorMessage');
+        this.loginButton = document.getElementById('loginButton');
         this.connection = mainFile.connection;
         //this.connection.connect();
-        this.loginButton.addEventListener("click", (e: any) => {
+        this.loginButton.addEventListener("click", (e) => {
             e.preventDefault(); //Prevents page from reloading
-            if(this.validateForm()) {
+            if (this.validateForm()) {
                 this.checkUsernameExists();
             }
         });
     }
-
-    validateForm():boolean {
+    validateForm() {
         if (this.usernameField.value != '' && this.passwordField.value != '') {
             this.username = this.usernameField.value;
             this.password = this.passwordField.value;
@@ -47,14 +41,13 @@ class Login {
             return false;
         }
     }
-
-    checkUsernameExists():void {
+    checkUsernameExists() {
         this.connection.query('SELECT * from USER', (err, result) => {
-            if(err) {
+            if (err) {
                 console.log(err);
             }
-            for(let i = 0; i < result.length; i++) {
-                if(this.username == result[i].username) { //checks if username exists in database
+            for (let i = 0; i < result.length; i++) {
+                if (this.username == result[i].username) {
                     this.errorField.innerHTML = "";
                     this.checkPassword(result[i].password);
                 }
@@ -62,22 +55,21 @@ class Login {
         });
         this.errorField.innerHTML = "Username doesn't exist";
     }
-
-    checkPassword(databasePassword: string):void {
+    checkPassword(databasePassword) {
         passwordHAS(this.password).verifyAgainst(databasePassword, (error, verified) => {
-            if(error)
+            if (error)
                 throw new Error('Something went wrong!');
-            if(!verified) {
+            if (!verified) {
                 this.errorField.innerHTML = "Incorrect password";
                 throw new Error('Incorrect password');
-            } else {
+            }
+            else {
                 mainFile.locals.loggedIn = this.username;
                 window.location.href = "../html/frontpage.pug";
             }
         });
     }
 }
-
 window.onload = () => {
     let login = new Login();
-}
+};

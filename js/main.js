@@ -1,48 +1,39 @@
 'use strict';
-
-const mysql = require('mysql')
-const {app, BrowserWindow, protocol} = require('electron')
-const path = require('path')
-const url = require('url')
+const mysql = require('mysql');
+const { app, BrowserWindow, protocol } = require('electron');
+const path = require('path');
+const url = require('url');
 const locals = {};
-require('electron-pug')({pretty: true}, locals);
+require('electron-pug')({ pretty: true }, locals);
 require('electron-reload')(__dirname);
-let currentPage = ''
-
-let win
-
+let currentPage = '';
+let win;
 exports.locals = locals;
-
 exports.connection = mysql.createConnection({
     host: 'mysql.stud.ntnu.no',
     user: 'andrris_gruppe18',
     password: 'cdji2005',
     database: 'andrris_gruppe18',
-})
-
-function createWindow () {
-    win = new BrowserWindow({width: 1000, height: 800, frame:false})
-    exports.loadPage('loginPage.pug')
-    win.webContents.openDevTools()
+});
+function createWindow() {
+    win = new BrowserWindow({ width: 1000, height: 800, frame: false });
+    exports.loadPage('loginPage.pug');
+    win.webContents.openDevTools();
     win.on('closed', () => {
-    win = null
-    })
+        win = null;
+    });
 }
-
-app.on('ready', createWindow)
-
+app.on('ready', createWindow);
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-    app.quit()
+        app.quit();
     }
-})
-
+});
 app.on('activate', () => {
     if (win === null) {
-    createWindow()
+        createWindow();
     }
-})
-
+});
 //call this to load a page!
 exports.loadPage = (relPath) => {
     currentPage = relPath;
@@ -50,29 +41,25 @@ exports.loadPage = (relPath) => {
         pathname: path.join(__dirname, 'html/', relPath),
         protocol: 'file:',
         slashes: true
-    }))
-}
-
+    }));
+};
 exports.changeUsername = (username) => {
-    locals.username = username
+    locals.username = username;
 };
-
 exports.reloadPage = () => {
-    exports.loadPage(currentPage)
+    exports.loadPage(currentPage);
 };
-
 exports.SQLquery = (query, resolve) => {
     exports.connection.connect((err) => {
-        if(err) {
-            return console.log(err.stack)
+        if (err) {
+            return console.log(err.stack);
         }
-        console.log('Successfully connected to MySQL server')
-    })
-
+        console.log('Successfully connected to MySQL server');
+    });
     exports.connection.query(query, (err, rows, fields) => {
         if (err) {
-            return console.log('Error w/ query')
+            return console.log('Error w/ query');
         }
-        resolve(rows, fields)
-    })
-}
+        resolve(rows, fields);
+    });
+};

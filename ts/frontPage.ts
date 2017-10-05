@@ -33,6 +33,6 @@ class FrontPage {
         }
     }
 }
-
-let frontPage = new FrontPage();
-
+window.onload = () => {
+    let frontPage = new FrontPage();
+}
