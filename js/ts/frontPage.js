@@ -1,4 +1,6 @@
-//Don't touch the js version of this ts document
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const mainFile = require("../main.js");
 class FrontPage {
     constructor() {
         this.nameList = ["arrangor.png", "bookingansvarlig.png", "bookingsjef.png", "kontakt.png", "kundeservice.png", "lydtekniker.png", "lystekniker.png", "manager.png"];
@@ -7,8 +9,12 @@ class FrontPage {
         this.links = document.getElementsByClassName('links');
         this.logOutButton = document.getElementById('logOut');
         this.centralAngle = 360 / this.listElement.length;
+        this.loggedInUser = mainFile.locals.loggedIn;
+        this.connection = mainFile.connection;
+        //this.connection.connect();
         this.makeWheel();
         this.addLogOut();
+        this.checkLoggedInUser(this.loggedInUser);
     }
     makeWheel() {
         for (let i = 0; i < this.listElement.length; i++) {
@@ -25,6 +31,31 @@ class FrontPage {
         this.logOutButton.onclick = () => {
             window.location.href = "../html/loginPage.pug";
         };
+    }
+    checkLoggedInUser(user) {
+        this.connection.query('SELECT * from USER', (err, result) => {
+            if (err) {
+                throw new Error("Error in query");
+            }
+            for (let i = 0; i < result.length; i++) {
+                if (this.loggedInUser == result[i].username) {
+                    this.setUserPermissions(result[i].userType);
+                }
+                else {
+                    throw new Error("Can't find logged in user in database");
+                }
+            }
+        });
+    }
+    setUserPermissions(userType) {
+        switch (userType) {
+            case "Administrator": {
+            }
+            case "Manager": {
+            }
+            case "Technician": {
+            }
+        }
     }
 }
 window.onload = () => {

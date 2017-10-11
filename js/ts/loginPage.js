@@ -65,7 +65,7 @@ class Login {
             }
             else {
                 mainFile.locals.loggedIn = this.username;
-                window.location.href = "../html/frontpage.pug";
+                window.location.href = "../html/frontPage.pug";
             }
         });
     }

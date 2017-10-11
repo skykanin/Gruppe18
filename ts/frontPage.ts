@@ -1,4 +1,7 @@
 //Don't touch the js version of this ts document
+import * as mysql from 'mysql';
+import * as mainFile from '../main.js';
+
 class FrontPage {
     nameList = ["arrangor.png", "bookingansvarlig.png", "bookingsjef.png","kontakt.png", "kundeservice.png", "lydtekniker.png", "lystekniker.png", "manager.png"];
     listElement = document.getElementsByClassName('listIndex') as HTMLCollectionOf<HTMLElement>;
@@ -6,13 +9,18 @@ class FrontPage {
     links = document.getElementsByClassName('links') as HTMLCollectionOf<HTMLElement>;
     logOutButton = document.getElementById('logOut') as HTMLButtonElement;
     centralAngle = 360/this.listElement.length;
+    loggedInUser = mainFile.locals.loggedIn;
+    connection: mysql.IConnection;
 
     constructor() {
+        this.connection = mainFile.connection;
+        //this.connection.connect();
         this.makeWheel();
         this.addLogOut();
+        this.checkLoggedInUser(this.loggedInUser);
     }
 
-    makeWheel() {
+    makeWheel():void {
         for(let i = 0; i < this.listElement.length; i++) {
             this.listElement[i].style.transform = "rotate("+String(this.centralAngle*i)+"deg)";
             this.listElement[i].style.transform += "skew("+String(90-this.centralAngle)+"deg)";
@@ -27,11 +35,44 @@ class FrontPage {
         }
     }
 
-    addLogOut() {
+    addLogOut():void {
         this.logOutButton.onclick = () => {
             window.location.href = "../html/loginPage.pug";
         }
     }
+
+    checkLoggedInUser(user: string):void {
+        this.connection.query('SELECT * from USER', (err, result) => {
+            if(err) {
+                throw new Error("Error in query");
+            }
+            for(let i = 0; i < result.length; i++) {
+                if(this.loggedInUser == result[i].username) { //checks if logged in user exists in database and get user type
+                   this.setUserPermissions(result[i].userType);
+                } else {
+                    throw new Error("Can't find logged in user in database");
+                }
+            }
+        });
+    }
+
+    setUserPermissions(userType: string):void {
+        switch(userType) {
+            case "Administrator": {
+
+            }
+            
+            case "Manager": {
+
+            }
+
+            case "Technician": {
+                
+            }
+
+        }
+    }
+
 }
 window.onload = () => {
     let frontPage = new FrontPage();
