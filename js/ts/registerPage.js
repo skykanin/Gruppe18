@@ -75,8 +75,16 @@ class Register {
         });
         return false;
     }
+    hashAndSaltPassword() {
+        passwordHAS(this.password).hash((error, hash) => {
+            if (error) {
+                throw new Error('Something went wrong');
+            }
+            this.insertIntoDatabase(hash);
+        });
+    }
     insertIntoDatabase(hash) {
-        this.connection.query(`INSERT INTO USER VALUES ('${this.username}', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
+        this.connection.query("INSERT INTO USER('`username`, `usertype`, `password`) VALUES " + `('${this.username}', 'None', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
             if (error) {
                 throw error;
             }
@@ -84,14 +92,6 @@ class Register {
                 this.errorField.style.color = '#FFF400';
                 this.errorField.innerHTML = 'Account has been registered!';
             }
-        });
-    }
-    hashAndSaltPassword() {
-        passwordHAS(this.password).hash((error, hash) => {
-            if (error) {
-                throw new Error('Something went wrong');
-            }
-            this.insertIntoDatabase(hash);
         });
     }
 }

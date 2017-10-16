@@ -80,17 +80,6 @@ class Register {
         return false;
     }
 
-    insertIntoDatabase(hash: any):void {
-        this.connection.query(`INSERT INTO USER VALUES ('${this.username}', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
-            if(error) {
-                throw error;
-            } else {
-                this.errorField.style.color = '#FFF400';
-                this.errorField.innerHTML = 'Account has been registered!';
-            }
-        });
-    }
-
     hashAndSaltPassword():void {
         passwordHAS(this.password).hash((error, hash) => {
             if(error) {
@@ -100,6 +89,17 @@ class Register {
         });
     }
 
+    insertIntoDatabase(hash: any):void {
+        this.connection.query("INSERT INTO USER('`username`, `usertype`, `password`) VALUES "+`('${this.username}', 'None', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
+            if(error) {
+                throw error;
+            } else {
+                this.errorField.style.color = '#FFF400';
+                this.errorField.innerHTML = 'Account has been registered!';
+            }
+        });
+    }
+    
 }
 
 window.onload = () => {

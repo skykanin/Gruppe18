@@ -59,11 +59,11 @@ class FrontPage {
     setUserPermissions(userType: string):void {
         switch(userType) {
             case "Administrator": {
-
+                //Do nothing
             }
             
             case "Booking Manager": {
-
+                
             }
 
             case "Technician": {

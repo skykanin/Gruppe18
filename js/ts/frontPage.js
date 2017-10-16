@@ -50,6 +50,7 @@ class FrontPage {
     setUserPermissions(userType) {
         switch (userType) {
             case "Administrator": {
+                //Do nothing
             }
             case "Booking Manager": {
             }
