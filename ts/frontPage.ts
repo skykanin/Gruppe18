@@ -1,6 +1,6 @@
 //Don't touch the js version of this ts document
 import * as mysql from 'mysql';
-import * as mainFile from '../main.js';
+import * as mainFile from '../js/main.js';
 
 class FrontPage {
     nameList = ["arrangor.png", "bookingansvarlig.png", "bookingsjef.png","kontakt.png", "kundeservice.png", "lydtekniker.png", "lystekniker.png", "manager.png"];
@@ -10,7 +10,7 @@ class FrontPage {
     logOutButton = document.getElementById('logOut') as HTMLButtonElement;
     centralAngle = 360/this.listElement.length;
     loggedInUser = mainFile.locals.loggedIn;
-    connection: mysql.IConnection;
+    connection: any;
 
     constructor() {
         this.connection = mainFile.connection;
@@ -63,7 +63,7 @@ class FrontPage {
             }
             
             case "Booking Manager": {
-                
+                //idk
             }
 
             case "Technician": {

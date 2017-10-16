@@ -1,20 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//Don't edit the js version of this ts document
-const mysql = require("mysql");
 const passwordHAS = require("password-hash-and-salt");
+const mainFile = require("../js/main");
 class Login {
     constructor() {
         this.usernameField = document.getElementById('username');
         this.passwordField = document.getElementById('password');
         this.errorField = document.getElementById('errorMessage');
         this.loginButton = document.getElementById('loginButton');
-        this.connection = mysql.createConnection({
-            host: 'mysql.stud.ntnu.no',
-            user: 'andrris_gruppe18',
-            password: 'cdji2005',
-            database: 'andrris_gruppe18',
-        });
+        this.connection = mainFile.connection;
+        //this.connection.connect();
         this.loginButton.addEventListener("click", (e) => {
             e.preventDefault(); //Prevents page from reloading
             if (this.validateForm()) {
@@ -69,7 +64,8 @@ class Login {
                 throw new Error('Incorrect password');
             }
             else {
-                window.location.href = "../html/frontpage.pug";
+                mainFile.locals.loggedIn = this.username;
+                window.location.href = "../html/frontPage.pug";
             }
         });
     }
@@ -77,3 +73,4 @@ class Login {
 window.onload = () => {
     let login = new Login();
 };
+//# sourceMappingURL=loginPage.js.map

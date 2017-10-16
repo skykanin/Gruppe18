@@ -1,6 +1,6 @@
 import * as mysql from 'mysql';
 import * as passwordHAS from 'password-hash-and-salt';
-import * as mainFile from '../main.js';
+import * as mainFile from '../js/main';
 
 class Register {
     usernameField = document.getElementById('username') as HTMLInputElement;
@@ -9,7 +9,7 @@ class Register {
     selectField = document.getElementById('userSelection') as HTMLSelectElement;
     errorField = document.getElementById('errorMessage') as HTMLElement;
     loginButton = document.getElementById('loginButton') as HTMLButtonElement;
-    connection: mysql.IConnection;
+    connection: any;
     username: string;
     password: string;
     userType: string;
@@ -90,7 +90,11 @@ class Register {
     }
 
     insertIntoDatabase(hash: any):void {
-        this.connection.query("INSERT INTO USER('`username`, `usertype`, `password`) VALUES "+`('${this.username}', 'None', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
+        let query = "INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES (?,?,?)";
+        let inputList = [this.username.toString(),this.userType.toString(), hash.toString()];
+        console.log("test");
+        console.log("INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES " + `(${this.username.toString()},${this.userType.toString()},${hash.toString()})`);
+        this.connection.query(query, inputList, (error, results, fields) => {
             if(error) {
                 throw error;
             } else {

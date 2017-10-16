@@ -1,14 +1,14 @@
 //Don't edit the js version of this ts document
 import * as mysql from 'mysql';
 import * as passwordHAS from 'password-hash-and-salt';
-import * as mainFile from '../main.js';
+import * as mainFile from '../js/main';
 
 class Login {
     usernameField = document.getElementById('username') as HTMLInputElement;
     passwordField = document.getElementById('password') as HTMLInputElement;
     errorField = document.getElementById('errorMessage') as HTMLElement;
     loginButton = document.getElementById('loginButton') as HTMLButtonElement;
-    connection: mysql.IConnection;
+    connection: any;
     username: string;
     password: string;
 

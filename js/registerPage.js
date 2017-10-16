@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mysql = require("mysql");
 const passwordHAS = require("password-hash-and-salt");
+const mainFile = require("../js/main");
 class Register {
     constructor() {
         this.usernameField = document.getElementById('username');
@@ -10,13 +10,8 @@ class Register {
         this.selectField = document.getElementById('userSelection');
         this.errorField = document.getElementById('errorMessage');
         this.loginButton = document.getElementById('loginButton');
-        this.connection = mysql.createConnection({
-            host: 'mysql.stud.ntnu.no',
-            user: 'andrris_gruppe18',
-            password: 'cdji2005',
-            database: 'andrris_gruppe18',
-        });
-        this.connection.connect();
+        this.connection = mainFile.connection;
+        //this.connection.connect();
         this.loginButton.addEventListener("click", (e) => {
             e.preventDefault();
             var validate = this.validateForm();
@@ -80,8 +75,20 @@ class Register {
         });
         return false;
     }
+    hashAndSaltPassword() {
+        passwordHAS(this.password).hash((error, hash) => {
+            if (error) {
+                throw new Error('Something went wrong');
+            }
+            this.insertIntoDatabase(hash);
+        });
+    }
     insertIntoDatabase(hash) {
-        this.connection.query(`INSERT INTO USER VALUES ('${this.username}', 'NULL', 'NULL', '${this.userType}', '${hash}')`, (error, results, fields) => {
+        let query = "INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES (?,?,?)";
+        let inputList = [this.username.toString(), this.userType.toString(), hash.toString()];
+        console.log("test");
+        console.log("INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES " + `(${this.username.toString()},${this.userType.toString()},${hash.toString()})`);
+        this.connection.query(query, inputList, (error, results, fields) => {
             if (error) {
                 throw error;
             }
@@ -91,15 +98,8 @@ class Register {
             }
         });
     }
-    hashAndSaltPassword() {
-        passwordHAS(this.password).hash((error, hash) => {
-            if (error) {
-                throw new Error('Something went wrong');
-            }
-            this.insertIntoDatabase(hash);
-        });
-    }
 }
 window.onload = () => {
     let register = new Register();
 };
+//# sourceMappingURL=registerPage.js.map

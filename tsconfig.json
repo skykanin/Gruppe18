@@ -1,5 +1,6 @@
 {
   "version": "2.5.0",
+  "compileOnSave": true,
   "compilerOptions": {
       "allowJs": true,
       "module": "commonjs",
@@ -13,11 +14,7 @@
       "noImplicitAny": false,
       "strictNullChecks": true,  
       "removeComments": false,
+      "sourceMap": true,
       "outDir": "./js"
-  },
-  "files": [
-    "./ts/frontPage.ts",
-    "./ts/loginPage.ts",
-    "./ts/registerPage.ts"
-  ]
+  }
 }
