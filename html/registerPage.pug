@@ -15,7 +15,7 @@ block content
                 input(type="password" id="passwordTwo" placeholder="Re-Enter Password" required)
             p
                 select(name="User Selection" id="userSelection" required)
-                    - var values = ["Select user type", "Administrator","Bookingmanager", "Technician", "4", "5"]
+                    - var values = ["Select user type", "Administrator","Booking Manager", "Sound Technician", "Light Technician", "Booking Executive", "Organizer"]
                     for val in values
                         if (val === values[0])
                            option(value="" disabled selected)= val

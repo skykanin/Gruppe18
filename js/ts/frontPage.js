@@ -51,9 +51,15 @@ class FrontPage {
         switch (userType) {
             case "Administrator": {
             }
-            case "Manager": {
+            case "Booking Manager": {
             }
             case "Technician": {
+            }
+            case "Booking executive": {
+            }
+            case "Sound Technician": {
+            }
+            case "Light Technician": {
             }
         }
     }
