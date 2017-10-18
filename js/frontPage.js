@@ -17,3 +17,7 @@ for (let i = 0; i < listElement.length; i++) {
 listElement[0].onclick = () => {
     main.loadPage('arr-main.pug')
 }
+
+listElement[6].onclick = () => {
+    main.loadPage('tech-main.pug')
+}

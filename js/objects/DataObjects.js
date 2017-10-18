@@ -71,6 +71,9 @@ class User {
     addConcert(concert) {
         this.concerts.push(concert)
     }
+    getConcerts() {
+        return this.concerts
+    }
 }
 
 class Users {
@@ -86,6 +89,9 @@ class Users {
                 return this.users[i]
             }
         }
+    }
+    getUsers() {
+        return this.users
     }
 }
 

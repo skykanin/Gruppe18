@@ -1,9 +1,17 @@
 extends layout
 
 block content
-    div#
-    
+    div#maindiv
+        each user in locals.users.getUsers()
+            p= user
+            //ul
+            //    each concert in user.getConcerts()
+            //        li= concert
+
+
+
 block scripts
     script(src='../js/tech-main.js')
 
 block head
+    link(rel="stylesheet" type="text/css" href="../css/arr-main.css")
