@@ -93,6 +93,15 @@ class Users {
     getUsers() {
         return this.users
     }
+    getTechs() {
+        let techs = []
+        for (var i = 0; i < this.users.length; i++) {
+            if (this.users[i].usertype == 'Tekniker') {
+                techs.push(this.users[i])
+            }
+        }
+        return techs
+    }
 }
 
 //////////// loads/reloads the objects
