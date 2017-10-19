@@ -2,7 +2,7 @@
   "name": "gruppeprosjekt",
   "version": "1.0.0",
   "description": "Gruppe arbeid for gruppe 18 informatikk",
-  "main": "js/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
@@ -12,7 +12,6 @@
     "url": "git+https://github.com/skykanin/Gruppe18.git"
   },
   "keywords": [
-    "TypeScript",
     "Javascript",
     "electron",
     "node"
@@ -24,13 +23,11 @@
   },
   "homepage": "https://github.com/skykanin/Gruppe18#readme",
   "dependencies": {
-    "@types/mysql": "0.0.34",
-    "electron": "^1.7.6",
+    "electron": "^1.7.9",
     "electron-pug": "^1.5.1",
     "electron-reload": "^1.2.1",
     "mysql": "^2.14.1",
     "password-hash-and-salt": "^0.1.4",
-    "pug": "^2.0.0-rc.4",
-    "typescript": "^2.5.2"
+    "pug": "^2.0.0-rc.4"
   }
 }

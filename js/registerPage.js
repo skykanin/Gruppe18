@@ -1,7 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+
 const passwordHAS = require("password-hash-and-salt");
-const mainFile = require("../js/main");
+const mainFile = require("main.js");
+
 class Register {
     constructor() {
         this.usernameField = document.getElementById('username');

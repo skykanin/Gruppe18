@@ -4,14 +4,12 @@ const mysql = require('mysql')
 const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
-const locals = {loggedIn: ""}
-/*const pug = */require('electron-pug')({pretty: true}, locals)
-/* const electronReloaded = */require('electron-reload')(__dirname)
+exports.locals = {};
+require('electron-pug')({pretty: true}, exports.locals);
+require('electron-reload')(__dirname);
 let currentPage = ''
 
 let win
-
-exports.locals = locals;
 
 exports.connection = mysql.createConnection({
     host: 'mysql.stud.ntnu.no',
@@ -47,7 +45,7 @@ app.on('activate', () => {
 exports.loadPage = (relPath) => {
     currentPage = relPath;
     win.loadURL(url.format({
-        pathname: path.join(__dirname, '../html/', relPath),
+        pathname: path.join(__dirname, '/html/', relPath),
         protocol: 'file:',
         slashes: true
     }))
@@ -69,10 +67,18 @@ exports.SQLquery = (query, resolve) => {
         console.log('Successfully connected to MySQL server')
     })
 
-exports.connection.query(query, (err, rows, fields) => {
+    exports.connection.query(query, (err, rows, fields) => {
         if (err) {
             return console.log('Error w/ query')
         }
         resolve(rows, fields)
     })
 }
+
+/*var dataObjects = require(path.resolve('js/objects/DataObjects'))
+dataObjects.reloadConcerts()
+dataObjects.reloadFestivals()
+dataObjects.reloadUsers()
+exports.locals.concerts = dataObjects.concerts
+exports.locals.festivals = dataObjects.festivals
+exports.locals.users = dataObjects.users*/
