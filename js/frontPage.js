@@ -68,4 +68,3 @@ class FrontPage {
 window.onload = () => {
     let frontPage = new FrontPage();
 };
-//# sourceMappingURL=frontPage.js.map
