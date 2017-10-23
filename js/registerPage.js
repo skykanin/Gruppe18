@@ -104,7 +104,5 @@ class Register {
         });
     }
 }
-window.onload = () => {
-    let register = new Register();
-};
-//# sourceMappingURL=registerPage.js.map
+
+let register = new Register();
