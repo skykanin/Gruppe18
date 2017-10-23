@@ -1,0 +1,115 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    font-family:'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#login {
+    position: relative;
+    width: 396px;
+    height: 296px;
+    border: 2px solid white;
+    border-radius: 5%;
+    left: calc(50% - 250px);
+    top: calc(50% - 200px);
+    padding: 50px;
+    background-color: #55B5E3;
+}
+
+
+#title {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    top: calc(50% - 200px);
+    left: calc(50% - 150px);
+    color: white;
+}
+
+p > input {
+    position: relative;
+    width: 158px;
+    height: 36px;
+    left: calc(50% - 100px);
+    border: 1px solid white;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 30px;
+    box-shadow: 3px 3px 5px #474747;
+}
+
+input::-webkit-input-placeholder {
+    color: #666161;
+}
+
+p > select {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    left: calc(50% - 100px);
+    border: 1px solid white;
+    border-radius: 4px;
+    padding-left: 5px;
+    box-shadow: 3px 3px 5px #444;
+}
+
+#errorMessage {
+    position: relative;
+    display: block;
+    width: 300px;
+    height: 20px;
+    left: calc(50% - 150px);
+    color: #EEAF3B;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+#backButton {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: calc(20% - 75px);
+    bottom: 30px;
+    border: 1px solid rgba(238,175,59, 0.9);
+    border-radius: 4px;
+    padding-left: 5px;
+    box-shadow: 3px 3px 5px #444;
+    background-color: rgba(238,175,59, 0.9);
+    color: white;
+    font-size: 1em;
+}
+
+#loginButton {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    left: calc(50% - 100px);
+    border: 1px solid #4EC94E;
+    border-radius: 4px;
+    padding-left: 5px;
+    box-shadow: 3px 3px 5px #444;
+    background-color: #4EC94E;
+    color: white;
+    font-size: 1em;
+}
+
+#loginButton:hover {
+    background-color: rgba(238,175,59, 0.9);
+    border-color: rgba(238,175,59, 0.9);
+}
+
+#registerLink {
+    position: relative;
+    display: block;
+    left: 100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    text-decoration:none;
+    font-size: 0.95em;
+}

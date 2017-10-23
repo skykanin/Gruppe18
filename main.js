@@ -4,7 +4,11 @@ const mysql = require('mysql')
 const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
+<<<<<<< HEAD
 exports.locals = {};
+=======
+exports.locals = {loggedIn: ''};
+>>>>>>> loginPage
 require('electron-pug')({pretty: true}, exports.locals);
 require('electron-reload')(__dirname);
 let currentPage = ''
@@ -20,7 +24,7 @@ exports.connection = mysql.createConnection({
 
 function createWindow () {
     win = new BrowserWindow({width: 1000, height: 800, frame:false})
-    exports.loadPage('frontPage.pug')
+    exports.loadPage('loginPage.pug')
     win.webContents.openDevTools()
     win.on('closed', () => {
     win = null
@@ -45,7 +49,7 @@ app.on('activate', () => {
 exports.loadPage = (relPath) => {
     currentPage = relPath;
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'html/', relPath),
+        pathname: path.join(__dirname, '/html/', relPath),
         protocol: 'file:',
         slashes: true
     }))
@@ -74,6 +78,7 @@ exports.SQLquery = (query, resolve) => {
         resolve(rows, fields)
     })
 }
+
 
 var dataObjects = require(path.resolve('js/objects/DataObjects'))
 dataObjects.reloadConcerts()

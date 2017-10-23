@@ -12,7 +12,6 @@
     "url": "git+https://github.com/skykanin/Gruppe18.git"
   },
   "keywords": [
-    "TypeScript",
     "Javascript",
     "electron",
     "node"
@@ -29,6 +28,6 @@
     "electron-pug": "^1.5.1",
     "electron-reload": "^1.2.1",
     "mysql": "^2.14.1",
-    "typescript": "^2.5.2"
+    "password-hash-and-salt": "^0.1.4"
   }
 }

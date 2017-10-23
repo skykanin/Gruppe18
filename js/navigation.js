@@ -21,3 +21,4 @@ document.getElementById("home").addEventListener("click", (e) => {
     main.loadPage('frontPage.pug')
 
 });
+

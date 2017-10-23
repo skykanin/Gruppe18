@@ -1,0 +1,32 @@
+extends layout
+
+block head
+    link(rel="stylesheet" type="text/css" href="../css/registerPage.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato")
+block content
+    div#login
+        h2#title Register an account
+        button(id="backButton") Go back
+        form#loginForm
+            p
+                input(type="text" id="username" placeholder="Username" required)
+            p
+                input(type="password" id="passwordOne" placeholder="Password" required)
+            p
+                input(type="password" id="passwordTwo" placeholder="Re-Enter Password" required)
+            p
+                select(name="User Selection" id="userSelection" required)
+                    - var values = ["Select user type", "Administrator","Booking Manager", "Sound Technician", "Light Technician", "Booking Executive", "Organizer"]
+                    for val in values
+                        if (val === values[0])
+                           option(value="" disabled selected)= val
+                        else
+                            option(value=val)= val
+            p
+                span#errorMessage
+            p
+                button(id="loginButton" onclick="return false") Register
+
+block scripts
+    script var exports = {};
+    script(src="../js/registerPage.js")

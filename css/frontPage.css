@@ -4,6 +4,16 @@ html, body {
     padding: 0;
     margin: 0;
 }
+
+#logOut {
+    position: relative;
+    width: 100px;
+    height: 60px;
+    top: 50px;
+    border: 0;
+    background-color: rgb(38, 217, 83);
+}
+
 #wheel {
     width: 600px;
     height: 600px;
@@ -59,7 +69,6 @@ li:hover {
     height: 90px;
     user-select: none;
 }
-
 
 #imgTag0 {
     left: 230px;
