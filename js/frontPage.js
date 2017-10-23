@@ -18,6 +18,10 @@ listElement[0].onclick = () => {
     main.loadPage('arr-main.pug')
 }
 
+listElement[1].onclick = () => {
+    main.loadPage('bookresp-main.pug')
+}
+
 listElement[5].onclick = () => {
     main.loadPage('tech-main.pug')
 }
