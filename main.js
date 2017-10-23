@@ -4,7 +4,7 @@ const mysql = require('mysql')
 const {app, BrowserWindow, protocol} = require('electron')
 const path = require('path')
 const url = require('url')
-exports.locals = {};
+exports.locals = {loggedIn: ''};
 require('electron-pug')({pretty: true}, exports.locals);
 require('electron-reload')(__dirname);
 let currentPage = ''

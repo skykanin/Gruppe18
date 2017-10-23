@@ -8,6 +8,7 @@ class FrontPage {
         this.logOutButton = document.getElementById('logOut');
         this.centralAngle = 360 / this.listElement.length;
         this.loggedInUser = main.locals.loggedIn;
+        this.list = document.getElementsByClassName('listIndex');
         this.connection = main.connection;
         //this.connection.connect();
         this.makeWheel();
@@ -37,11 +38,10 @@ class FrontPage {
                 throw new Error("Error in query");
             }
             for (let i = 0; i < result.length; i++) {
+                //console.log(this.loggedInUser == result[i].username);
                 if (this.loggedInUser == result[i].username) {
-                    this.setUserPermissions(result[i].userType);
-                }
-                else {
-                    throw new Error("Can't find logged in user in database");
+                    this.setUserPermissions(result[i].usertype);
+                    console.log(result[i].usertype);
                 }
             }
         });
@@ -49,14 +49,65 @@ class FrontPage {
     setUserPermissions(userType) {
         switch (userType) {
             case "Administrator":
+                break;
             case "Booking Manager":
+                this.list[0].style.backgroundColor = "#6D8383";
+                this.list[0].disabled = true;
+                this.list[1].style.backgroundColor = "#6D8383";
+                this.list[1].disabled = true;
+                this.list[2].style.backgroundColor = "#6D8383";
+                this.list[2].disabled = true;
+                this.list[5].style.backgroundColor = "#6D8383";
+                this.list[5].disabled = true;
+                this.list[6].style.backgroundColor = "#6D8383";
+                this.list[6].disabled = true;
+                break;
             case "Technician":
-
+                this.list[0].style.backgroundColor = "#6D8383";
+                this.list[0].disabled = true;
+                this.list[1].style.backgroundColor = "#6D8383";
+                this.list[1].disabled = true;
+                this.list[2].style.backgroundColor = "#6D8383";
+                this.list[2].disabled = true;
+                this.list[7].style.backgroundColor = "#6D8383";
+                this.list[7].disabled = true;
+                break;
             case "Booking executive":
+                this.list[0].style.backgroundColor = "#6D8383";
+                this.list[0].disabled = true;
+                this.list[5].style.backgroundColor = "#6D8383";
+                this.list[5].disabled = true;
+                this.list[6].style.backgroundColor = "#6D8383";
+                this.list[6].disabled = true;
+                this.list[7].style.backgroundColor = "#6D8383";
+                this.list[7].disabled = true;
+                break;
             case "Sound Technician":
+                this.list[0].style.backgroundColor = "#6D8383";
+                this.list[0].disabled = true;
+                this.list[1].style.backgroundColor = "#6D8383";
+                this.list[1].disabled = true;
+                this.list[2].style.backgroundColor = "#6D8383";
+                this.list[2].disabled = true;
+                this.list[5].style.backgroundColor = "#6D8383";
+                this.list[5].disabled = true;
+                this.list[7].style.backgroundColor = "#6D8383";
+                this.list[7].disabled = true;
+                break;
             case "Light Technician":
+                this.list[0].style.backgroundColor = "#6D8383";
+                this.list[0].disabled = true;
+                this.list[1].style.backgroundColor = "#6D8383";
+                this.list[1].disabled = true;
+                this.list[2].style.backgroundColor = "#6D8383";
+                this.list[2].disabled = true;
+                this.list[6].style.backgroundColor = "#6D8383";
+                this.list[6].disabled = true;
+                this.list[7].style.backgroundColor = "#6D8383";
+                this.list[7].disabled = true;
+                break;
             default:
-
+                console.log("No matching cases");
         }
     }
 }
