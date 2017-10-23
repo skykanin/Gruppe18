@@ -14,6 +14,18 @@ class FrontPage {
         this.makeWheel();
         this.addLogOut();
         this.checkLoggedInUser(this.loggedInUser);
+
+        this.list[0].onclick = () => {
+            main.loadPage('arr-main.pug')
+        }
+        
+        this.list[5].onclick = () => {
+            main.loadPage('tech-main.pug')
+        }
+        
+        this.list[6].onclick = () => {
+            main.loadPage('tech-main.pug')
+        }
     }
     makeWheel() {
         for (let i = 0; i < this.listElement.length; i++) {
@@ -111,21 +123,7 @@ class FrontPage {
         }
     }
 }
-<<<<<<< HEAD
 
-listElement[0].onclick = () => {
-    main.loadPage('arr-main.pug')
-}
-
-listElement[5].onclick = () => {
-    main.loadPage('tech-main.pug')
-}
-
-listElement[6].onclick = () => {
-    main.loadPage('tech-main.pug')
-}
-=======
 window.onload = () => {
     let frontPage = new FrontPage();
 };
->>>>>>> loginPage
