@@ -2,10 +2,15 @@ extends layout
 
 block content
     div#maindiv
-        form
-            input(type='text' name='search' placeholder='search')
+        div.contentdivs
+            form
+                input(type='text' name='search' placeholder='search')
+        ul#searchresults
+
+
 
 block scripts
     script(src='../js/bookresp-main.js')
 
 block head
+    link(rel="stylesheet" type="text/css" href="../css/bookresp-main.css")
