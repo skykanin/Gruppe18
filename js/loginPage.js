@@ -1,13 +1,14 @@
 "use strict";
 const passwordHAS = require("password-hash-and-salt");
-const mainFile = require("../main.js");
+//const mainFile = require('electron').remote.require('../main')
+//console.log(mainFile)
 class Login {
     constructor() {
         this.usernameField = document.getElementById('username');
         this.passwordField = document.getElementById('password');
         this.errorField = document.getElementById('errorMessage');
         this.loginButton = document.getElementById('loginButton');
-        this.connection = mainFile.connection;
+        this.connection = main.connection;
         //this.connection.connect();
         this.loginButton.addEventListener("click", (e) => {
             e.preventDefault(); //Prevents page from reloading
@@ -63,7 +64,7 @@ class Login {
                 throw new Error('Incorrect password');
             }
             else {
-                mainFile.locals.loggedIn = this.username;
+                main.locals.loggedIn = this.username;
                 window.location.href = "../html/frontPage.pug";
             }
         });
@@ -72,4 +73,3 @@ class Login {
 window.onload = () => {
     let login = new Login();
 };
-//# sourceMappingURL=loginPage.js.map

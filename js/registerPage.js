@@ -1,7 +1,6 @@
 "use strict";
 
 const passwordHAS = require("password-hash-and-salt");
-const mainFile = require("main.js");
 
 class Register {
     constructor() {
@@ -11,7 +10,8 @@ class Register {
         this.selectField = document.getElementById('userSelection');
         this.errorField = document.getElementById('errorMessage');
         this.loginButton = document.getElementById('loginButton');
-        this.connection = mainFile.connection;
+        this.backButton = document.getElementById('backButton');
+        this.connection = main.connection;
         //this.connection.connect();
         this.loginButton.addEventListener("click", (e) => {
             e.preventDefault();
@@ -22,6 +22,10 @@ class Register {
                     this.hashAndSaltPassword();
                 }
             }
+        });
+
+        this.backButton.addEventListener("click", () => {
+            location.href = "loginPage.pug";
         });
     }
     validateForm() {

@@ -1,5 +1,4 @@
 "use strict";
-const mainFile = require("main.js");
 class FrontPage {
     constructor() {
         this.nameList = ["arrangor.png", "bookingansvarlig.png", "bookingsjef.png", "kontakt.png", "kundeservice.png", "lydtekniker.png", "lystekniker.png", "manager.png"];
@@ -8,8 +7,8 @@ class FrontPage {
         this.links = document.getElementsByClassName('links');
         this.logOutButton = document.getElementById('logOut');
         this.centralAngle = 360 / this.listElement.length;
-        this.loggedInUser = mainFile.locals.loggedIn;
-        this.connection = mainFile.connection;
+        this.loggedInUser = main.locals.loggedIn;
+        this.connection = main.connection;
         //this.connection.connect();
         this.makeWheel();
         this.addLogOut();
@@ -28,6 +27,7 @@ class FrontPage {
     }
     addLogOut() {
         this.logOutButton.onclick = () => {
+            main.locals.loggedIn = "";
             window.location.href = "../html/loginPage.pug";
         };
     }
@@ -48,20 +48,15 @@ class FrontPage {
     }
     setUserPermissions(userType) {
         switch (userType) {
-            case "Administrator": {
-                //Do nothing
-            }
-            case "Booking Manager": {
-                //idk
-            }
-            case "Technician": {
-            }
-            case "Booking executive": {
-            }
-            case "Sound Technician": {
-            }
-            case "Light Technician": {
-            }
+            case "Administrator":
+            case "Booking Manager":
+            case "Technician":
+
+            case "Booking executive":
+            case "Sound Technician":
+            case "Light Technician":
+            default:
+
         }
     }
 }
