@@ -64,59 +64,100 @@ class FrontPage {
                 break;
             case "Booking Manager":
                 this.list[0].style.backgroundColor = "#6D8383";
-                this.list[0].disabled = true;
+                this.list[0].style.pointerEvents = "none";
+                this.list[0].style.cursor = "default";
+
                 this.list[1].style.backgroundColor = "#6D8383";
-                this.list[1].disabled = true;
+                this.list[1].style.pointerEvents= "none";
+                this.list[1].style.cursor = "default";
+
                 this.list[2].style.backgroundColor = "#6D8383";
-                this.list[2].disabled = true;
+                this.list[2].style.pointerEvents= "none";
+                this.list[2].style.cursor = "default";
+
                 this.list[5].style.backgroundColor = "#6D8383";
-                this.list[5].disabled = true;
+                this.list[5].style.pointerEvents= "none";
+                this.list[5].style.cursor = "default";
+
                 this.list[6].style.backgroundColor = "#6D8383";
-                this.list[6].disabled = true;
+                this.list[6].style.pointerEvents= "none";
+                this.list[6].style.cursor = "default";
                 break;
             case "Technician":
                 this.list[0].style.backgroundColor = "#6D8383";
-                this.list[0].disabled = true;
+                this.list[0].style.pointerEvents= "none";
+                this.list[0].style.cursor = "default";
+
                 this.list[1].style.backgroundColor = "#6D8383";
-                this.list[1].disabled = true;
+                this.list[1].style.pointerEvents= "none";
+                this.list[1].style.cursor = "default";
+
                 this.list[2].style.backgroundColor = "#6D8383";
-                this.list[2].disabled = true;
+                this.list[2].style.pointerEvents= "none";
+                this.list[2].style.cursor = "default";
+
                 this.list[7].style.backgroundColor = "#6D8383";
-                this.list[7].disabled = true;
+                this.list[7].style.pointerEvents= "none";
+                this.list[7].style.cursor = "default";
                 break;
             case "Booking executive":
                 this.list[0].style.backgroundColor = "#6D8383";
-                this.list[0].disabled = true;
+                this.list[0].style.pointerEvents= "none";
+                this.list[0].style.cursor = "default";
+
                 this.list[5].style.backgroundColor = "#6D8383";
-                this.list[5].disabled = true;
+                this.list[5].style.pointerEvents= "none";
+                this.list[5].style.cursor = "default";
+
                 this.list[6].style.backgroundColor = "#6D8383";
-                this.list[6].disabled = true;
+                this.list[6].style.pointerEvents= "none";
+                this.list[6].style.cursor = "default";
+
                 this.list[7].style.backgroundColor = "#6D8383";
-                this.list[7].disabled = true;
+                this.list[7].style.pointerEvents= "none";
+                this.list[7].style.cursor = "default";
                 break;
             case "Sound Technician":
                 this.list[0].style.backgroundColor = "#6D8383";
-                this.list[0].disabled = true;
+                this.list[0].style.pointerEvents= "none";
+                this.list[0].style.cursor = "default";
+
                 this.list[1].style.backgroundColor = "#6D8383";
-                this.list[1].disabled = true;
+                this.list[1].style.pointerEvents= "none";
+                this.list[1].style.cursor = "default";
+
                 this.list[2].style.backgroundColor = "#6D8383";
-                this.list[2].disabled = true;
+                this.list[2].style.pointerEvents= "none";
+                this.list[2].style.cursor = "default";
+
                 this.list[5].style.backgroundColor = "#6D8383";
-                this.list[5].disabled = true;
+                this.list[5].style.pointerEvents= "none";
+                this.list[5].style.cursor = "default";
+
                 this.list[7].style.backgroundColor = "#6D8383";
-                this.list[7].disabled = true;
+                this.list[7].style.pointerEvents= "none";
+                this.list[7].style.cursor = "default";
                 break;
             case "Light Technician":
                 this.list[0].style.backgroundColor = "#6D8383";
-                this.list[0].disabled = true;
+                this.list[0].style.pointerEvents= "none";
+                this.list[0].style.cursor = "default";
+
                 this.list[1].style.backgroundColor = "#6D8383";
-                this.list[1].disabled = true;
+                this.list[1].style.pointerEvents= "none";
+                this.list[1].style.cursor = "default";
+
                 this.list[2].style.backgroundColor = "#6D8383";
-                this.list[2].disabled = true;
+                this.list[2].style.pointerEvents= "none";
+                this.list[2].style.cursor = "default";
+
                 this.list[6].style.backgroundColor = "#6D8383";
-                this.list[6].disabled = true;
+                this.list[6].style.pointerEvents= "none";
+                this.list[6].style.cursor = "default";
+
                 this.list[7].style.backgroundColor = "#6D8383";
-                this.list[7].disabled = true;
+                this.list[7].style.pointerEvents= "none";
+                this.list[7].style.cursor = "default";
                 break;
             default:
                 console.log("No matching cases");
