@@ -19,7 +19,12 @@ exports.connection = mysql.createConnection({
 })
 
 function createWindow () {
-    win = new BrowserWindow({width: 1000, height: 800, frame:false})
+    let platform = process.platform
+    if(platform == 'darwin'){
+        win = new BrowserWindow({width: 1000, height: 800, titleBarStyle: 'hiddenInset'})
+    } else {
+        win = new BrowserWindow({width: 1000, height: 800, frame:false})
+    }
     exports.loadPage('loginPage.pug')
     win.webContents.openDevTools()
     win.on('closed', () => {
@@ -37,7 +42,7 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
     if (win === null) {
-    createWindow()
+        createWindow()
     }
 })
 
