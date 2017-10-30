@@ -1,8 +1,16 @@
 extends layout
 
 block content
+    div#maindiv
+        div.contentdivs
+            form
+                input(type='text' name='search' placeholder='search')
+        div
+            table#searchresults
+
 
 block scripts
     script(src='../js/bookresp-main.js')
 
 block head
+    link(rel="stylesheet" type="text/css" href="../css/bookresp-main.css")
