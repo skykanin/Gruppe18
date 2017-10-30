@@ -1,0 +1,24 @@
+extends layout
+
+block head
+    link(rel="stylesheet" type="text/css" href="../css/loginPage.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Lato")
+block content
+    div#login
+        h2#title Log in to your account
+        form#loginForm
+            p
+                input(type="text" id="username" placeholder="Username" required)
+                img(src="../images/login icons/userIcon.png" alt="lock png" id="userIcon")
+            p
+                input(type="password" id="password" placeholder="Password" required)
+                img(src="../images/login icons/lockIcon.png" alt="lock png" id="lockIcon")
+            p
+                span#errorMessage
+            p
+                button(id="loginButton" onclick="return false") Log in
+        a(href="registerPage.pug" id="registerLink") Don't have an account? Register here
+
+block scripts
+    script var exports = {};
+    script(src="../js/loginPage.js")
