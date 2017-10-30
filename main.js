@@ -74,7 +74,7 @@ exports.SQLquery = (query, resolve) => {
 
     exports.connection.query(query, (err, rows, fields) => {
         if (err) {
-            return console.log('Error w/ query')
+            return console.log(err.stack)
         }
         resolve(rows, fields)
     })

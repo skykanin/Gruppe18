@@ -18,7 +18,11 @@ class FrontPage {
         this.list[0].onclick = () => {
             main.loadPage('arr-main.pug')
         }
-        
+
+        this.list[1].onclick = () => {
+            main.loadPage('bookresp-main.pug')
+        }
+
         this.list[5].onclick = () => {
             main.loadPage('tech-main.pug')
         }
