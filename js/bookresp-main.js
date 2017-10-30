@@ -37,6 +37,29 @@ searchbar.addEventListener('input', () => {
         td2.innerHTML = x.manager
         td3.innerHTML = x.genre
         td4.innerHTML = x.description
+        td5.innerHTML = x.streams
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+        tr.appendChild(td4)
+        tr.appendChild(td5)
+        searchresults.appendChild(tr)
+
+        concerts = main.locals.concerts.getConcertsByBand(x.name)
+        tr = document.createElement('tr')
+        td1 = document.createElement('td')
+        ul = document.createElement('ul')
+        concerts.forEach(y => {
+            li = document.createElement('li')
+            li.innerHTML = 'Played ' + y.start + ' on ' + y.scene + ' in front of ' + y.audience + ' people'
+            ul.appendChild(li)
+        })
+        td1.colSpan = 5
+        td1.appendChild(ul)
+        tr.appendChild(td1)
+
+        searchresults.appendChild(tr)
 
 
     })
