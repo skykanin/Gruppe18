@@ -78,8 +78,10 @@ exports.SQLquery = (query, resolve) => {
 
 var dataObjects = require(path.resolve('js/objects/DataObjects'))
 dataObjects.reloadConcerts()
+dataObjects.reloadBands()
 dataObjects.reloadFestivals()
 dataObjects.reloadUsers()
 exports.locals.concerts = dataObjects.concerts
 exports.locals.festivals = dataObjects.festivals
 exports.locals.users = dataObjects.users
+exports.locals.bands = dataObjects.bands

@@ -57,6 +57,15 @@ class Concerts {
             }
         }
     }
+    getConcertsByBand(band) {
+        let matching_concerts = []
+        this.concerts.forEach((x) => {
+            if (x.band == band) {
+                matching_concerts.push(x)
+            }
+        })
+        return matching_concerts
+    }
 }
 
 class User {
@@ -74,6 +83,9 @@ class User {
     getConcerts() {
         return this.concerts
     }
+
+
+
 }
 
 class Users {
@@ -104,11 +116,41 @@ class Users {
     }
 }
 
+class Bands {
+    constructor() {
+        this.bands = []
+    }
+    addBand(band) {
+        this.bands.push(band)
+    }
+    getBandsBySearch(search) {
+        let results = []
+        for (var i = 0; i < this.bands.length; i++) {
+            if (this.bands[i].name.toUpperCase().includes(search.toUpperCase())) {
+                results.push(this.bands[i])
+            }
+        }
+        return results
+    }
+}
+
+class Band {
+    constructor(id, name, manager, description, genre, streams) {
+        this.id = id
+        this.manager = manager
+        this.name = name
+        this.description = description
+        this.genre = genre
+        this.streams = streams
+    }
+}
+
 //////////// loads/reloads the objects
 
 exports.festivals = []
 exports.concerts = new Concerts()
 exports.users = new Users()
+exports.bands = new Bands()
 
 usersloaded = false
 concertsloaded = false
@@ -169,4 +211,14 @@ exports.reloadConcert_technical = () => {
             })
         })
     }
+}
+
+exports.reloadBands = () => {
+    let festivalquery = 'SELECT * FROM `BAND`'
+    main.SQLquery(festivalquery, (rows, fields) => {
+        rows.forEach((x) => {
+            band = new Band(x.id, x.name, x.manager, x.description, x.Genre, x.streams)
+            exports.bands.addBand(band)
+        })
+    })
 }
