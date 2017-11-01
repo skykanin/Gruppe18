@@ -45,11 +45,12 @@ class Login {
         this.connection.query('SELECT * from USER', (err, result) => {
             if (err) {
                 console.log(err);
-            }
-            for (let i = 0; i < result.length; i++) {
-                if (this.username == result[i].username) {
-                    this.errorField.innerHTML = "";
-                    this.checkPassword(result[i].password);
+            } else {
+                for (let i = 0; i < result.length; i++) {
+                    if (this.username == result[i].username) {
+                        this.errorField.innerHTML = "";
+                        this.checkPassword(result[i].password);
+                    }
                 }
             }
         });
