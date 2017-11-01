@@ -52,7 +52,7 @@ body{
 }
 
 #nav {
-    width:calc(100vw - 50px - 50px - 50px - 70px - 5px);
+    width:calc(100vw - 50px - 50px - 50px - 100px - 5px);
 }
 #close{
     font-size:2em;
