@@ -91,7 +91,6 @@ class Register {
     insertIntoDatabase(hash) {
         let query = "INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES (?,?,?)";
         let inputList = [this.username.toString(), this.userType.toString(), hash.toString()];
-        console.log("test");
         console.log("INSERT INTO `USER`(`username`, `usertype`, `password`) VALUES " + `(${this.username.toString()},${this.userType.toString()},${hash.toString()})`);
         this.connection.query(query, inputList, (error, results, fields) => {
             if (error) {

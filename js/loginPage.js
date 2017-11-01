@@ -44,7 +44,7 @@ class Login {
     checkUsernameExists() {
         this.connection.query('SELECT * from USER', (err, result) => {
             if (err) {
-                console.log(err);
+                throw err;
             } else {
                 for (let i = 0; i < result.length; i++) {
                     if (this.username == result[i].username) {

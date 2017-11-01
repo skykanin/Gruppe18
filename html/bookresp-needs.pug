@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    div#maindiv
+        div.contentdivs
+            form
+                input(type='text' id='search' name='search' placeholder='Search band needs')
+                button(id='backButton') Go Back
+        div
+            table#searchresults
+                tr
+                    th Band
+                    th Description
+
+
+block scripts
+    script(src='../js/bookresp-needs.js')
+
+block head
+    link(rel="stylesheet" type="text/css" href="../css/bookresp-main.css")

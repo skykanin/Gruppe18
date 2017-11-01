@@ -1,5 +1,6 @@
 let searchbar = document.getElementsByName('search')[0]
 let searchresults = document.getElementById('searchresults')
+let redirectButton = document.getElementById('redirectButton')
 
 searchbar.addEventListener('input', () => {
     results = main.locals.bands.getBandsBySearch(searchbar.value)
@@ -64,3 +65,7 @@ searchbar.addEventListener('input', () => {
 
     })
 })
+
+redirectButton.onclick = () => {
+    main.loadPage('bookresp-needs.pug')
+}
