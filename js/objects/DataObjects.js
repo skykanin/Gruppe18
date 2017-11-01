@@ -126,7 +126,7 @@ class Bands {
     getBandsBySearch(search) {
         let results = []
         for (var i = 0; i < this.bands.length; i++) {
-            if (this.bands[i].name.toUpperCase().includes(search.toUpperCase())) {
+            if (this.bands[i].name.toUpperCase().includes(search.toUpperCase()) || search == "") {
                 results.push(this.bands[i])
             }
         }
