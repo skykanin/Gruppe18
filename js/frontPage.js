@@ -30,6 +30,10 @@ class FrontPage {
         this.list[6].onclick = () => {
             main.loadPage('tech-main.pug')
         }
+        
+        this.list[7].onclick = () => {
+            main.loadPage('man-main.pug')
+        }
     }
     makeWheel() {
         for (let i = 0; i < this.listElement.length; i++) {

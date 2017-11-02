@@ -217,7 +217,7 @@ exports.reloadBands = () => {
     let festivalquery = 'SELECT * FROM `BAND`'
     main.SQLquery(festivalquery, (rows, fields) => {
         rows.forEach((x) => {
-            band = new Band(x.id, x.name, x.manager, x.description, x.Genre, x.streams)
+            band = new Band(x.ID, x.name, x.manager, x.description, x.Genre, x.streams)
             exports.bands.addBand(band)
         })
     })

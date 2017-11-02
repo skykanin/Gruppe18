@@ -1,8 +1,20 @@
 extends layout
 
 block content
-
+    div#maindiv
+        div#search
+            input(id='searchBar' placeholder='Search for bands')
+        div#table
+            table#searchResults
+                tr
+                    each val in ['Band', 'Manager', 'Genre', 'Technical Needs']
+                        th= val
+        div#techincal
+            textarea#needsInput(name="Needs", cols="50", rows="10", placeholder="Write technical needs here")
+        div#submit
+            button#submit Submit
 block scripts
     script(src='../js/man-main.js')
 
 block head
+    link(rel="stylesheet" type="text/css" href="../css/man-main.css")
