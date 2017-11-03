@@ -1,7 +1,3 @@
-class Manager {
-
-}
-
 class Search {
     constructor() {
         this.connection = main.connection;
@@ -26,10 +22,11 @@ class Search {
 }
 
 class DisplayBands extends Search {
-    constructor(searchBar=document.getElementById('searchBar'), tableElement=document.getElementById('searchResults')) {
+    constructor(searchBar=document.getElementById('searchBar'), tableElement=document.getElementById('searchResults'), displayTable=document.getElementById('display')) {
         super();
         this.searchBar = searchBar;
         this.table = tableElement;
+        this.displayTable = displayTable;
         this.setEventListeners();
     }
 
@@ -43,7 +40,6 @@ class DisplayBands extends Search {
         while (this.table.children.length > 1) {
             this.table.removeChild(this.table.lastChild);
         }
-        console.log(main.locals.bands);
         let results = this.getSearchBandResults(this.searchBar.value);
         for(let i=0; i < results.length; i++) {
             let row = document.createElement('tr');
@@ -54,21 +50,41 @@ class DisplayBands extends Search {
             let genre = document.createElement('td');
             genre.innerHTML = results[i].genre;
             let description = document.createElement('td');
-            console.log(this.bandNeeds);
             this.bandNeeds.forEach((band) => {
-                console.log("needs", band.BID);
-                console.log("bands", results[i]);
-                if(band.bid == results[i].id && band.BID != undefined && results[i].id != undefined) {
+                if(band.BID == results[i].id && band.BID != undefined && results[i].id != undefined) {
                     description.innerHTML = band.description;
-                    return;
                 }
             });
-
             row.appendChild(name);
             row.appendChild(manager);
             row.appendChild(genre);
             row.appendChild(description);
             this.table.appendChild(row);
+        }
+        this.addTableRowEventListeners();
+    }
+
+    addTableRowEventListeners() {
+        let rows = this.table.getElementsByTagName('tr');
+        
+        for(let i=1; i < rows.length; i++) {
+            rows[i].onclick = () => {
+                let selectedRow = document.createElement('tr');
+                selectedRow.innerHTML = rows[i].innerHTML;
+                this.selectedRow = selectedRow;
+                this.displaySelectedBand();
+            }
+        }
+        
+    }
+
+    displaySelectedBand() {
+        if(this.displayTable.rows[1] == undefined) {
+            this.displayTable.appendChild(this.selectedRow);
+
+        } else if(this.selectedRow.cells[0].innerHTML !== this.displayTable.rows[1].cells[0].innerHTML) {
+            this.displayTable.removeChild(this.displayTable.children[1]);
+            this.displayTable.appendChild(this.selectedRow);
         }
     }
 }

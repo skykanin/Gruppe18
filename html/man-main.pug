@@ -9,7 +9,13 @@ block content
                 tr
                     each val in ['Band', 'Manager', 'Genre', 'Technical Needs']
                         th= val
+        div#header
+            h2 Selected Band
         div#techincal
+            table#display
+                tr
+                    each val in ['Band', 'Manager', 'Genre', 'Technical Needs']
+                        th= val
             textarea#needsInput(name="Needs", cols="50", rows="10", placeholder="Write technical needs here")
         div#submit
             button#submit Submit
