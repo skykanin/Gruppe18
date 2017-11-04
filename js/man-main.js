@@ -22,18 +22,30 @@ class Search {
 }
 
 class DisplayBands extends Search {
-    constructor(searchBar=document.getElementById('searchBar'), tableElement=document.getElementById('searchResults'), displayTable=document.getElementById('display')) {
+    constructor(searchBar=document.getElementById('searchBar'), tableElement=document.getElementById('searchResults'),
+    displayTable=document.getElementById('display'), submitButton=document.getElementById('submitButton'),
+    textArea=document.getElementById('needsInput'), errorField = document.getElementById('error')) {
         super();
         this.searchBar = searchBar;
         this.table = tableElement;
         this.displayTable = displayTable;
         this.setEventListeners();
+        this.submitButton = submitButton;
+        this.technicalData = textArea;
+        this.errorField = errorField;
     }
 
     setEventListeners() {
         this.searchBar.oninput = () => {
             this.displayBands();
         }
+        
+        document.getElementsByTagName('Button')[0].onclick = () => {
+            this.submit();
+        }
+        // this.submitButton.onclick = () => {
+        //     this.submit();
+        // }
     }
 
     displayBands() {
@@ -86,6 +98,16 @@ class DisplayBands extends Search {
             this.displayTable.removeChild(this.displayTable.children[1]);
             this.displayTable.appendChild(this.selectedRow);
         }
+    }
+
+    submit() {
+        if(this.displayTable.rows[1] == undefined || this.technicalData.value == '') {
+            this.errorField.innerHTML = 'No Band Selected';
+            throw new Error("No Band object selected");
+            return None;
+        }
+
+
     }
 }
 

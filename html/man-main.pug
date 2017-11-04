@@ -16,9 +16,10 @@ block content
                 tr
                     each val in ['Band', 'Manager', 'Genre', 'Technical Needs']
                         th= val
-            textarea#needsInput(name="Needs", cols="50", rows="10", placeholder="Write technical needs here")
+            textarea#needsInput(name="Needs", cols="50", rows="10", placeholder="Write technical needs here" value="")
+            span#error
         div#submit
-            button#submit Submit
+            button#submitButton Submit
 block scripts
     script(src='../js/man-main.js')
 
