@@ -54,7 +54,7 @@ body {
 
 #techincal > textarea {
     position: relative;
-    top: 120px;
+    top: 50px;
     width: 400px;
     left: calc(50% - 200px);
 }
@@ -62,10 +62,10 @@ body {
 #error {
     position: relative;
     display: block;
-    width: 150px;
+    width: 400px;
     height: 30px;
-    left: calc(50% - 75px);
-    top: calc(20% + 70px);
+    left: calc(50% - 175px);
+    top: calc(20%);
 }
 
 #submit {

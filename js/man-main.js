@@ -102,12 +102,18 @@ class DisplayBands extends Search {
 
     submit() {
         if(this.displayTable.rows[1] == undefined || this.technicalData.value == '') {
-            this.errorField.innerHTML = 'No Band Selected';
-            throw new Error("No Band object selected");
-            return None;
+            this.errorField.innerHTML = 'No Band Selected or technical needs field is empty';
+            throw new Error('No Band object selected or technical needs field is empty');
+        } else {
+            let queryString = "INSERT INTO `NEEDS`(`BID`, `description`) VALUES (?,?)";
+            bandId = main.locals.bands.getBandsBySearch(this.displayTable.rows[1].cells[0]).id;
+            this.connection.query(queryString, [bandId, this.technicalData], (error, results) => {
+                if(error) throw error;
+                return error;
+            });
+            this.technicalData = '';
+            this.displayBands();
         }
-
-
     }
 }
 
