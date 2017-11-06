@@ -11,7 +11,8 @@ let currentPage = ''
 
 let win
 
-exports.connection = mysql.createConnection({
+exports.connection = mysql.createPool({
+    connectionLimit: 10,
     host: 'mysql.stud.ntnu.no',
     user: 'andrris_gruppe18',
     password: 'cdji2005',
@@ -65,13 +66,6 @@ exports.reloadPage = () => {
 };
 
 exports.SQLquery = (query, resolve) => {
-    exports.connection.connect((err) => {
-        if(err) {
-            return console.log(err.stack)
-        }
-        console.log('Successfully connected to MySQL server')
-    })
-
     exports.connection.query(query, (err, rows, fields) => {
         if (err) {
             return console.log(err.stack)
@@ -79,7 +73,6 @@ exports.SQLquery = (query, resolve) => {
         resolve(rows, fields)
     })
 }
-
 
 var dataObjects = require(path.resolve('js/objects/DataObjects'))
 dataObjects.reloadConcerts()
