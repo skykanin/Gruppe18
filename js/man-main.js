@@ -29,10 +29,10 @@ class DisplayBands extends Search {
         this.searchBar = searchBar;
         this.table = tableElement;
         this.displayTable = displayTable;
-        this.setEventListeners();
         this.submitButton = submitButton;
         this.technicalData = textArea;
         this.errorField = errorField;
+        this.setEventListeners();
     }
 
     setEventListeners() {
@@ -40,12 +40,9 @@ class DisplayBands extends Search {
             this.displayBands();
         }
         
-        document.getElementsByTagName('Button')[0].onclick = () => {
+        this.submitButton.onclick = () => {
             this.submit();
         }
-        // this.submitButton.onclick = () => {
-        //     this.submit();
-        // }
     }
 
     displayBands() {
@@ -106,10 +103,15 @@ class DisplayBands extends Search {
             throw new Error('No Band object selected or technical needs field is empty');
         } else {
             let queryString = "INSERT INTO `NEEDS`(`BID`, `description`) VALUES (?,?)";
-            bandId = main.locals.bands.getBandsBySearch(this.displayTable.rows[1].cells[0]).id;
-            this.connection.query(queryString, [bandId, this.technicalData], (error, results) => {
-                if(error) throw error;
-                return error;
+            let bandId = main.locals.bands.getBandsBySearch(this.displayTable.rows[1].cells[0]).id;
+            let inputList = [bandId.toString(), this.technicalData.toString()];
+            this.connection.query(queryString, inputList, (error, results) => {
+                if(error) {
+                    throw error;
+                    return error;
+                } else {
+                    console.log(results);
+                }
             });
             this.technicalData = '';
             this.displayBands();
