@@ -53,12 +53,21 @@ searchbar.addEventListener('input', () => {
         searchresults.appendChild(bandrows[i])
 
         bandrows[i].onclick = () => {
+            let offerRows = document.getElementsByClassName('offerRow')
+            Array.prototype.forEach.call(bandrows, (x) => {
+                x.style.backgroundColor = '#eee'
+            })
+            Array.prototype.forEach.call(offerRows, (x) => {
+                x.remove()
+            })
             let tr2 = document.createElement('tr')
             let td = document.createElement('td')
+            let div = document.createElement('div')
             let date = document.createElement('input')
             let price = document.createElement('input')
             let comment = document.createElement('textarea')
             let submit = document.createElement('button')
+            tr2.className = 'offerRow'
             td.colSpan = '5'
             date.type = 'date'
             price.type = 'text'
@@ -66,10 +75,11 @@ searchbar.addEventListener('input', () => {
             comment.placeholder = 'Comments'
             submit.innerHTML = 'Submit offer'
 
-            td.appendChild(date)
-            td.appendChild(price)
-            td.appendChild(comment)
-            td.appendChild(submit)
+            div.appendChild(date)
+            div.appendChild(price)
+            div.appendChild(comment)
+            div.appendChild(submit)
+            td.appendChild(div)
             tr2.appendChild(td)
             submit.onclick = () => {
                 datev = date.value
@@ -78,7 +88,7 @@ searchbar.addEventListener('input', () => {
 
                 let query = `
                 INSERT INTO OFFER (BID, performance_date, price, comment)
-                VALUES (${results[i].id}, ${datev}, ${pricev}, ${commentv})
+                VALUES (${results[i].id}, ${datev}, ${pricev}, '${commentv}')
                 `
                 main.SQLquery(query, (rows, fields) => {
                     alert('Offer submitted')
@@ -87,9 +97,7 @@ searchbar.addEventListener('input', () => {
             }
             bandrows[i].style.backgroundColor = 'red'
             bandrows[i].parentNode.insertBefore(tr2, bandrows[i].nextSibling)
-
         }
-
         concerts = main.locals.concerts.getConcertsByBand(results[i].name)
         tr = document.createElement('tr')
         td1 = document.createElement('td')
@@ -105,49 +113,6 @@ searchbar.addEventListener('input', () => {
 
         searchresults.appendChild(tr)
     }
-
-
-    // let i = 0
-    // Array.prototype.forEach.call(entries, x => {
-    //     x.onclick = () => {
-    //         let tr2 = document.createElement('tr')
-    //         let td = document.createElement('td')
-    //         let date = document.createElement('input')
-    //         let price = document.createElement('input')
-    //         let comment = document.createElement('textarea')
-    //         let submit = document.createElement('button')
-    //         td.colSpan = '5'
-    //         date.type = 'date'
-    //         price.type = 'text'
-    //         price.placeholder = 'Price'
-    //         comment.placeholder = 'Comments'
-    //         submit.innerHTML = 'Submit offer'
-    //
-    //         td.appendChild(date)
-    //         td.appendChild(price)
-    //         td.appendChild(comment)
-    //         td.appendChild(submit)
-    //         tr2.appendChild(td)
-    //
-    //         submit.onclick = () => {
-    //             datev = date.value
-    //             pricev = price.value
-    //             commentv = comment.value
-    //
-    //             let query = `
-    //             INSERT INTO OFFER (BID, performance_date, price, comment)
-    //             VALUES (${results[i].id}, ${datev}, ${pricev}, ${commentv})
-    //             `
-    //             main.SQLquery(query, (rows, fields) => {
-    //                 alert('Offer submitted')
-    //                 x.remove()
-    //             })
-    //         }
-    //         x.style.backgroundColor = 'red'
-    //         x.parentNode.insertBefore(tr2, x.nextSibling)
-    //         i++
-    //     }
-    // })
 })
 
 redirectButton.onclick = () => {

@@ -70,3 +70,8 @@ tr:active {
     color: black;
     cursor: pointer;
 }
+
+tr.offerRow td div {
+    display: grid;
+
+}
